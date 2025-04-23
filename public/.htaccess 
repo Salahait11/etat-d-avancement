@@ -1,0 +1,12 @@
+# public/.htaccess
+
+# Active le moteur de réécriture d'URL
+RewriteEngine On
+
+# Ne pas appliquer les règles aux fichiers ou dossiers existants
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Rediriger toutes les autres requêtes vers index.php
+RewriteRule ^ index.php [L]
