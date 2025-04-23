@@ -1,12 +1,13 @@
 # public/.htaccess
 
-# Active le moteur de réécriture d'URL
+# Active le moteur de réécriture
 RewriteEngine On
 
-# Ne pas appliquer les règles aux fichiers ou dossiers existants
+# Empêche la réécriture si le fichier ou dossier demandé existe réellement sur le disque
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Rediriger toutes les autres requêtes vers index.php
+# Redirige toutes les autres requêtes vers index.php
+# Le [L] signifie "Last rule" (ne pas traiter d'autres règles si celle-ci correspond).
 RewriteRule ^ index.php [L]
