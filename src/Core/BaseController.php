@@ -53,18 +53,25 @@ abstract class BaseController
         if (!str_starts_with($path, '/')) {
             $path = '/' . $path;
         }
+    
+       
+        $basePath = '/gestion_ecoles/public';
+    
+        
+    
+    
         $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
         $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-        $scriptFolder = dirname($_SERVER['SCRIPT_NAME'] ?? '');
-        $basePath = rtrim(str_replace('\\', '/', $scriptFolder), '/');
-        if ($basePath === '.' || $basePath === '\\') {
-             $basePath = '';
-        }
+    
+        // Construction de l'URL avec le basePath choisi ci-dessus
         $url = $scheme . '://' . $host . $basePath . $path;
+    
+        
+    
+        // Redirection réelle
         header('Location: ' . $url, true, 302);
         exit;
     }
-
     /**
      * Récupère une donnée d'entrée GET ou POST (nettoyage basique).
      */
