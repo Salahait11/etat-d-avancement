@@ -1,20 +1,20 @@
 <?php return array(
     'root' => array(
-        'name' => 'ton_nom/gestion_ecoles',
+        'name' => 'salah-ait/gestion_ecoles',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'a85c3077200da156f6e2ea5b1a6882ba04609d79',
-        'type' => 'project',
+        'reference' => 'a9ac7c16a8205b6892d8caf297dba07306bc49c6',
+        'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'ton_nom/gestion_ecoles' => array(
+        'salah-ait/gestion_ecoles' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'a85c3077200da156f6e2ea5b1a6882ba04609d79',
-            'type' => 'project',
+            'reference' => 'a9ac7c16a8205b6892d8caf297dba07306bc49c6',
+            'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,

@@ -4,29 +4,36 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Core\BaseController; // Utilise le contrôleur de base
-use App\Model\UtilisateurModel; // Utilise le modèle utilisateur
-use PDO; // Requis car on l'injecte dans le constructeur
+use App\Core\BaseController;
+use App\Model\UtilisateurModel; // Utilise le modèle
+// Pas besoin de use PDO ici
 
 class AuthController extends BaseController // Hérite de BaseController
 {
     private UtilisateurModel $userModel;
 
-    public function __construct(PDO $pdo)
+    // Le constructeur de BaseController est appelé automatiquement
+    // et initialise $this->db (l'instance Database).
+    // Nous instancions UtilisateurModel ici.
+    public function __construct()
     {
-        // Instancie le modèle en lui passant la connexion DB reçue
-        $this->userModel = new UtilisateurModel($pdo);
+        parent::__construct(); // Appelle le constructeur parent (qui initialise $this->db)
+        $this->userModel = new UtilisateurModel(); // Le modèle Utilisateur utilisera aussi Database::getInstance()
     }
 
     /**
      * Gère la page d'accueil : redirige si connecté, sinon affiche login.
+     * (Cette méthode peut être déplacée dans HomeController si on préfère)
      */
     public function handleHomepage(): void
     {
         if ($this->isUserLoggedIn()) {
-            $this->redirect('/dashboard'); // Redirige vers une future page dashboard
+            $this->redirect('/dashboard');
         } else {
-            $this->showLoginForm(); // Affiche le formulaire si non connecté
+            // Si l'accueil doit être le login, appeler showLoginForm
+             $this->showLoginForm();
+             // Si l'accueil est une page publique gérée par HomeController:
+             // (new HomeController())->index(); // Ou utiliser un meilleur système de routage/injection
         }
     }
 
@@ -36,75 +43,107 @@ class AuthController extends BaseController // Hérite de BaseController
     public function showLoginForm(): void
     {
         if ($this->isUserLoggedIn()) {
-             $this->redirect('/dashboard'); // Redirige si déjà connecté
+             $this->redirect('/dashboard');
         }
-        // Prépare les données pour la vue (juste le titre ici)
-        $viewData = ['title' => 'Connexion'];
-        // Récupère un éventuel message d'erreur flash
-        $viewData['error'] = $this->getFlashMessage('error');
-
-        $this->render('auth/login', $viewData); // Rend la vue auth/login.php (dans le layout par défaut)
+        $viewData = [
+            'title' => 'Connexion',
+            // Récupère un éventuel message flash d'erreur pour l'afficher
+            'flashError' => $this->getFlashMessage('error') // Optionnel, le layout le gère aussi
+        ];
+        $this->render('auth/login', $viewData); // Utilise la vue src/View/auth/login.php
     }
 
     /**
      * Traite la soumission du formulaire de connexion (POST /login)
      */
-    public function processLogin(): void
-    {
-        if ($this->isUserLoggedIn()) {
-            $this->redirect('/dashboard'); // Ne devrait pas arriver si déjà connecté, mais sécurité
-        }
+    // Rappel de la version avec DEBUG :
+public function processLogin(): void
+{
+    echo "DEBUG: Entrée dans processLogin()...<br>"; // 1
 
-        $email = $this->input('email', '', 'post');
-        $password = $this->input('password', '', 'post');
-
-        // Validation très simple (à améliorer plus tard)
-        if (empty($email) || empty($password)) {
-            $this->setFlashMessage('error', 'Email et mot de passe sont requis.');
-            $this->redirect('/login'); // Redirige vers le formulaire
-            return; // Important d'arrêter ici
-        }
-
-        // Tentative de vérification via le Modèle
-        $user = $this->userModel->verifyLogin($email, $password);
-
-        if ($user) {
-            // Succès !
-            session_regenerate_id(true); // Sécurité : régénérer l'ID de session
-            // Stocker les infos essentielles en session
-            $_SESSION['logged_in'] = true;
-            $_SESSION['user'] = [
-                'id' => $user['id'],
-                'nom' => $user['nom'],
-                'prenom' => $user['prenom'],
-                'email' => $user['email']
-                // On ajoutera les rôles plus tard
-            ];
-
-            $this->setFlashMessage('success', 'Connexion réussie ! Bienvenue ' . htmlspecialchars($user['prenom']) . '.');
-            $this->redirect('/dashboard'); // Rediriger vers la page protégée
-
-        } else {
-            // Échec
-            $this->setFlashMessage('error', 'Identifiants invalides ou compte inactif.');
-            $this->redirect('/login'); // Retour au formulaire
-        }
+    if ($this->isUserLoggedIn()) {
+        echo "DEBUG: Déjà connecté, redirection vers dashboard...<br>";
+        $this->redirect('/dashboard');
     }
 
+    $email = $this->input('email', '', 'post');
+    $password = $this->input('password', '', 'post');
+
+    echo "DEBUG: Email reçu: " . htmlspecialchars($email) . "<br>"; // 2
+    echo "DEBUG: Mot de passe reçu: " . (!empty($password) ? "[Présent]" : "[Vide]") . "<br>"; // 3
+
+    // Validation ... (les echos de validation sont aussi utiles)
+     if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+         echo "DEBUG: Validation Email échouée.<br>"; // V1
+         $this->setFlashMessage('error', 'Adresse email invalide ou manquante.');
+         $this->redirect('/login'); return;
+     }
+     if (empty($password)) {
+         echo "DEBUG: Validation Mot de passe échouée.<br>"; // V2
+         $this->setFlashMessage('error', 'Le mot de passe est requis.');
+         $this->redirect('/login'); return;
+     }
+
+
+    echo "DEBUG: Validation OK. Appel de verifyLogin...<br>"; // 4
+    $user = $this->userModel->verifyLogin($email, $password);
+
+    if ($user) {
+        echo "DEBUG: verifyLogin() a retourné SUCCÈS.<br>"; // 5a
+    } else {
+        echo "DEBUG: verifyLogin() a retourné ÉCHEC.<br>"; // 5b
+    }
+
+    if ($user) {
+        // Succès
+        echo "DEBUG: Connexion réussie. Préparation session...<br>"; // 6
+        session_regenerate_id(true);
+        $_SESSION['logged_in'] = true;
+        $_SESSION['user'] = [ /* ... */ ];
+        echo "DEBUG: Session préparée. Redirection vers dashboard...<br>"; // 7
+        $this->setFlashMessage('success', 'Connexion réussie ! ...');
+        $this->redirect('/dashboard'); // << LA REDIRECTION FINALE
+
+    } else {
+        // Échec
+        echo "DEBUG: Connexion échouée. Préparation flash et redirection login...<br>"; // 8
+        $this->setFlashMessage('error', 'Identifiants invalides ou compte inactif.');
+        $this->redirect('/login'); // << REDIRECTION SI ECHEC
+    }
+    echo "DEBUG: Fin de processLogin (ne devrait pas être atteint).<br>"; // 9
+}
     /**
      * Déconnecte l'utilisateur (GET ou POST /logout)
      */
     public function logout(): void
     {
-        $_SESSION = []; // Vide le tableau de session
-        if (ini_get("session.use_cookies")) { // Supprime le cookie de session
+        // Vider toutes les variables de session
+        $_SESSION = [];
+
+        // Supprimer le cookie de session côté client
+        if (ini_get("session.use_cookies")) {
             $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000,
+            setcookie(session_name(), '', time() - 42000, // Expiré dans le passé
                 $params["path"], $params["domain"],
                 $params["secure"], $params["httponly"]
             );
         }
-        session_destroy(); // Détruit la session côté serveur
-        $this->redirect('/login'); // Redirige vers la page de connexion
+
+        // Détruire la session côté serveur
+        session_destroy();
+
+        // Optionnel : message flash de déconnexion
+        // setFlashMessage('info', 'Vous avez été déconnecté.'); // Attention, session détruite avant ?
+
+        // Rediriger vers la page de connexion
+        $this->redirect('/login');
     }
+
+    // Méthode pour afficher le dashboard (appelée par le routeur)
+     public function showDashboard(): void
+     {
+          $this->requireLogin(); // Assure que seul un utilisateur connecté peut voir ça
+          $this->render('dashboard/index', ['title' => 'Tableau de Bord']);
+     }
+
 }

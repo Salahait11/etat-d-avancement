@@ -1,13 +1,15 @@
 {
-    "name": "ton_nom/gestion_ecoles", 
-    "description": "Application de gestion pédagogique pour les écoles.",
-    "type": "project",
-    "require": {
-        "php": ">=8.0" 
-    },
+    "name": "salah-ait/gestion_ecoles",
     "autoload": {
         "psr-4": {
-            "App\\": "src/" 
+            "App\\": "src/"
         }
-    }
+    },
+    "authors": [
+        {
+            "name": "Salah Ait hammou",
+            "email": "aithammousalah0@gmail.com"
+        }
+    ],
+    "require": {}
 }

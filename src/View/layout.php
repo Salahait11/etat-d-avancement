@@ -3,72 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($title) ? htmlspecialchars($title) : 'Gestion Écoles'; ?></title>
-    <link rel="stylesheet" href="/css/style.css"> <!-- Ajuster le chemin si nécessaire -->
-     <style> /* Styles basiques pour commencer (à mettre dans style.css) */
-        body { font-family: sans-serif; margin: 0; padding: 0; }
-        header { background-color: #333; color: white; padding: 10px 20px; }
-        header h1 { margin: 0; font-size: 1.5em; }
-        header a { color: white; text-decoration: none; }
-        header nav ul { list-style: none; padding: 0; margin: 0; text-align: right; }
-        header nav li { display: inline-block; margin-left: 15px; }
-        main { padding: 20px; }
-        footer { background-color: #f2f2f2; text-align: center; padding: 10px; margin-top: 20px; border-top: 1px solid #ccc; }
+    <title><?php echo isset($title) ? htmlspecialchars($title) : 'Gestion Écoles v2'; ?></title>
+    <!-- Utilisation de BASE_URL pour le CSS -->
+    <link rel="stylesheet" href="<?php echo htmlspecialchars($baseUrl ?? ''); ?>/css/style.css">
+    <!-- Styles basiques (à déplacer dans style.css) -->
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+        .container { max-width: 1100px; margin: 20px auto; padding: 0 15px; }
+        header { background-color: #343a40; color: #fff; padding: 1rem 0; margin-bottom: 20px; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        header h1 { margin: 0; font-size: 1.8em; }
+        header a { color: #fff; text-decoration: none; }
+        header nav ul { list-style: none; padding: 0; margin: 0; }
+        header nav li { display: inline-block; margin-left: 20px; }
+        header nav a { color: #f8f9fa; } header nav a:hover { color: #fff; }
+        main { min-height: 60vh; }
+        footer { background-color: #f8f9fa; text-align: center; padding: 15px 0; margin-top: 30px; border-top: 1px solid #e7e7e7; font-size: 0.9em; color: #6c757d; }
         .flash-messages { margin-bottom: 15px; padding: 0; list-style: none; }
-        .flash-message { padding: 10px 15px; margin-bottom: 10px; border-radius: 4px; }
-        .flash-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .flash-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-        .flash-warning { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
-        .flash-info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
-        .form-group { margin-bottom: 1em; }
-        .form-group label { display: block; margin-bottom: .3em; font-weight: bold; }
-        .form-group input[type=text], .form-group input[type=email], .form-group input[type=password], .form-group input[type=number], .form-group textarea {
-            width: 90%; max-width: 400px; padding: 8px; border: 1px solid #ccc; border-radius: 3px;
-        }
-         .button { display: inline-block; margin-top: 10px; margin-right: 10px; text-decoration: none; padding: 10px 15px; border-radius: 3px; cursor: pointer; font-size: 1em; border: none; color: white; background-color: #007bff; }
-         button.button { font-family: inherit; }
-         .button.delete-button { background-color: #dc3545; }
+        .flash-message { padding: 12px 18px; margin-bottom: 12px; border-radius: 5px; border: 1px solid transparent; }
+        .flash-success { background-color: #d4edda; color: #155724; border-color: #c3e6cb; }
+        .flash-error { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; }
+        .flash-warning { background-color: #fff3cd; color: #856404; border-color: #ffeeba; }
+        .flash-info { background-color: #d1ecf1; color: #0c5460; border-color: #bee5eb; }
+        .button { display: inline-block; margin-top: 5px; margin-right: 5px; text-decoration: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-size: 0.95em; border: none; color: white; background-color: #0d6efd; }
+        button.button { font-family: inherit; }
+        .button.delete-button { background-color: #dc3545; }
+        .button.secondary-button { background-color: #6c757d; }
     </style>
 </head>
 <body>
     <header>
-        <h1><a href="/">Gestion Pédagogique</a></h1>
-        <nav>
-            <ul>
-                <?php if (isset($isLoggedIn) && $isLoggedIn === true): ?>
-                    <li><a href="/dashboard">Tableau de Bord</a></li>
-                    <li><a href="/filieres">Filières</a></li>
-                    <!-- Ajouter d'autres liens si connecté -->
-                    <li>Connecté: <?php echo isset($currentUser['prenom']) ? htmlspecialchars($currentUser['prenom']) : 'Utilisateur'; ?></li>
-                    <li><a href="/logout" class="button delete-button" style="padding: 5px 10px; font-size:0.9em;">Déconnexion</a></li>
-                <?php else: ?>
-                    <li><a href="/login">Connexion</a></li>
-                <?php endif; ?>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1><a href="<?php echo htmlspecialchars($baseUrl ?? '/'); ?>">Gestion Pédagogique</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="<?php echo htmlspecialchars($baseUrl ?? '/'); ?>">Accueil</a></li>
+                    <?php if (isset($isLoggedIn) && $isLoggedIn === true): ?>
+                        <li><a href="<?php echo htmlspecialchars($baseUrl); ?>/dashboard">Tableau de Bord</a></li>
+                        <li><a href="<?php echo htmlspecialchars($baseUrl); ?>/filieres">Filières</a></li>
+                        <li><span><?php echo htmlspecialchars($currentUser['prenom'] ?? 'Utilisateur'); ?></span></li>
+                        <li><a href="<?php echo htmlspecialchars($baseUrl); ?>/logout" class="button delete-button" style="padding: 5px 10px; font-size:0.9em;">Déco</a></li>
+                    <?php else: ?>
+                        <li><a href="<?php echo htmlspecialchars($baseUrl); ?>/login">Connexion</a></li>
+                    <?php endif; ?>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <!-- Affichage des Messages Flash -->
-        <?php if (isset($_SESSION['_flash']) && !empty($_SESSION['_flash'])): ?>
-        <div class="flash-messages">
-            <?php foreach ($_SESSION['_flash'] as $key => $message): ?>
-                <div class="flash-message flash-<?php echo htmlspecialchars($key); ?>">
-                    <?php echo htmlspecialchars($message); ?>
-                </div>
-            <?php endforeach; ?>
-            <?php unset($_SESSION['_flash']); ?>
+    <div class="container">
+        <main>
+            <!-- Affichage des Messages Flash -->
+            <?php if (isset($_SESSION['_flash']) && !empty($_SESSION['_flash'])): ?>
+<div class="flash-messages">
+    <?php foreach ($_SESSION['_flash'] as $key => $message): ?>
+        <div class="flash-message flash-<?php echo htmlspecialchars($key); ?>">
+            <?php echo htmlspecialchars($message); ?>
         </div>
-        <?php endif; ?>
-
-        <!-- Contenu spécifique de la vue -->
-        <?php echo $content ?? ''; ?>
-    </main>
+    <?php endforeach; ?>
+    <?php unset($_SESSION['_flash']); // Très important ?>
+</div>
+<?php endif; ?>
+            <!-- Contenu spécifique de la vue -->
+            <?php echo $content ?? ''; ?>
+        </main>
+    </div>
 
     <footer>
-        <p>© <?php echo date('Y'); ?> Gestion Écoles.</p>
+         <div class="container">
+            <p>© <?php echo date('Y'); ?> Gestion Écoles v2.</p>
+        </div>
     </footer>
 
-    <script src="/js/script.js"></script> <!-- Ajuster le chemin si nécessaire -->
+    <!-- Utilisation de BASE_URL pour le JS -->
+    <script src="<?php echo htmlspecialchars($baseUrl ?? ''); ?>/js/script.js"></script>
 </body>
 </html>

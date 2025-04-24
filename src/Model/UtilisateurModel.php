@@ -4,15 +4,17 @@ declare(strict_types=1);
 
 namespace App\Model;
 
-use PDO; // Importer la classe PDO
+use App\Core\Database; // Utilise notre classe Database
+use PDO;            // Juste pour les constantes PDO::PARAM_*
+use PDOStatement;
 
 class UtilisateurModel
 {
-    private PDO $db; // Stocke la connexion PDO
+    private Database $db; // Instance de notre classe Database
 
-    public function __construct(PDO $pdo)
+    public function __construct() // Le constructeur n'a plus besoin de $pdo
     {
-        $this->db = $pdo;
+        $this->db = Database::getInstance(); // Obtient l'instance via le Singleton
     }
 
     /**
@@ -24,10 +26,10 @@ class UtilisateurModel
                 FROM utilisateur
                 WHERE email = :email
                 LIMIT 1";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC); // Retourne l'utilisateur ou false
+        // Utilise la méthode query de notre classe Database
+        $stmt = $this->db->query($sql, [':email' => $email]);
+        // Vérifie si la requête a réussi avant de fetch
+        return $stmt ? $stmt->fetch(PDO::FETCH_ASSOC) : false;
     }
 
     /**
@@ -37,18 +39,20 @@ class UtilisateurModel
     {
         $user = $this->findByEmail($email);
 
+        // Utilisateur non trouvé ou inactif
         if ($user === false || $user['statut'] !== 'actif') {
-            return false; // Utilisateur non trouvé ou inactif
+            return false;
         }
 
-        // Vérifie le mot de passe haché
+        // Vérification du mot de passe (password_verify est globale, pas besoin de $this)
         if (password_verify($plainPassword, $user['mot_de_passe'])) {
-            unset($user['mot_de_passe']); // Ne pas garder le hash en mémoire/session
+            unset($user['mot_de_passe']); // Ne pas retourner le hash
             return $user; // Succès
         }
 
-        return false; // Mot de passe incorrect
+        // Mot de passe incorrect
+        return false;
     }
 
-    // Ajouter ici plus tard : createUser, findById, update, delete...
+  
 }
