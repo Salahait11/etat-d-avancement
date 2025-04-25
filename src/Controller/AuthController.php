@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Core\BaseController;
+use App\Core\Validator;
 use App\Model\UtilisateurModel; // Utilise le modèle
-// Pas besoin de use PDO ici
+use App\Model\FiliereModel;
+use App\Model\ModuleModel;
+use App\Model\EtatAvancementModel; // Pas besoin de use PDO ici
 
 class AuthController extends BaseController // Hérite de BaseController
 {
@@ -56,62 +59,57 @@ class AuthController extends BaseController // Hérite de BaseController
     /**
      * Traite la soumission du formulaire de connexion (POST /login)
      */
-    // Rappel de la version avec DEBUG :
-public function processLogin(): void
-{
-    echo "DEBUG: Entrée dans processLogin()...<br>"; // 1
+    public function processLogin(): void
+    {
+        if ($this->isUserLoggedIn()) {
+            $this->redirect('/dashboard');
+            return;
+        }
 
-    if ($this->isUserLoggedIn()) {
-        echo "DEBUG: Déjà connecté, redirection vers dashboard...<br>";
-        $this->redirect('/dashboard');
+        $email = $this->input('email', '', 'post');
+        $password = $this->input('password', '', 'post');
+
+        $validator = new Validator();
+        $validator->required('email', $email)->email('email', $email)->required('password', $password);
+        $errors = $validator->getErrors();
+        if (!empty($errors)) {
+            foreach ($errors as $message) {
+                $this->setFlashMessage('error', $message);
+            }
+            $this->redirect('/login');
+            return;
+        }
+
+        // Vérification des identifiants
+        $user = $this->userModel->verifyLogin($email, $password);
+
+        if ($user) {
+            // Succès de la connexion
+            session_regenerate_id(true); // Sécurité contre les attaques de fixation de session
+            $_SESSION['logged_in'] = true;
+            
+            // --- Récupération et Stockage des Rôles ---
+            // Utilise la nouvelle méthode de UtilisateurModel
+            $roles = $this->userModel->getUserRoleNames($user['id']);
+            // ----------------------------------------
+            
+            $_SESSION['user'] = [
+                'id' => $user['id'],
+                'nom' => $user['nom'],
+                'prenom' => $user['prenom'],
+                'email' => $user['email'],
+                'roles' => $roles // <<< Stocke le tableau des noms de rôles
+            ];
+            
+            $this->setFlashMessage('success', 'Connexion réussie ! Bienvenue ' . htmlspecialchars($user['prenom']) . '.');
+            $this->redirect('/dashboard');
+        } else {
+            // Échec de la connexion
+            $this->setFlashMessage('error', 'Identifiants invalides ou compte inactif.');
+            $this->redirect('/login');
+        }
     }
 
-    $email = $this->input('email', '', 'post');
-    $password = $this->input('password', '', 'post');
-
-    echo "DEBUG: Email reçu: " . htmlspecialchars($email) . "<br>"; // 2
-    echo "DEBUG: Mot de passe reçu: " . (!empty($password) ? "[Présent]" : "[Vide]") . "<br>"; // 3
-
-    // Validation ... (les echos de validation sont aussi utiles)
-     if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-         echo "DEBUG: Validation Email échouée.<br>"; // V1
-         $this->setFlashMessage('error', 'Adresse email invalide ou manquante.');
-         $this->redirect('/login'); return;
-     }
-     if (empty($password)) {
-         echo "DEBUG: Validation Mot de passe échouée.<br>"; // V2
-         $this->setFlashMessage('error', 'Le mot de passe est requis.');
-         $this->redirect('/login'); return;
-     }
-
-
-    echo "DEBUG: Validation OK. Appel de verifyLogin...<br>"; // 4
-    $user = $this->userModel->verifyLogin($email, $password);
-
-    if ($user) {
-        echo "DEBUG: verifyLogin() a retourné SUCCÈS.<br>"; // 5a
-    } else {
-        echo "DEBUG: verifyLogin() a retourné ÉCHEC.<br>"; // 5b
-    }
-
-    if ($user) {
-        // Succès
-        echo "DEBUG: Connexion réussie. Préparation session...<br>"; // 6
-        session_regenerate_id(true);
-        $_SESSION['logged_in'] = true;
-        $_SESSION['user'] = [ /* ... */ ];
-        echo "DEBUG: Session préparée. Redirection vers dashboard...<br>"; // 7
-        $this->setFlashMessage('success', 'Connexion réussie ! ...');
-        $this->redirect('/dashboard'); // << LA REDIRECTION FINALE
-
-    } else {
-        // Échec
-        echo "DEBUG: Connexion échouée. Préparation flash et redirection login...<br>"; // 8
-        $this->setFlashMessage('error', 'Identifiants invalides ou compte inactif.');
-        $this->redirect('/login'); // << REDIRECTION SI ECHEC
-    }
-    echo "DEBUG: Fin de processLogin (ne devrait pas être atteint).<br>"; // 9
-}
     /**
      * Déconnecte l'utilisateur (GET ou POST /logout)
      */
@@ -142,8 +140,26 @@ public function processLogin(): void
     // Méthode pour afficher le dashboard (appelée par le routeur)
      public function showDashboard(): void
      {
-          $this->requireLogin(); // Assure que seul un utilisateur connecté peut voir ça
-          $this->render('dashboard/index', ['title' => 'Tableau de Bord']);
+          $this->requireLogin();
+        // Récupération des statistiques
+        $filieresCount = count((new FiliereModel())->findAll());
+        $modulesCount = count((new ModuleModel())->findAllWithFiliere());
+        $etatsCount = count((new EtatAvancementModel())->findAllWithDetails());
+        $usersCount = count($this->userModel->findAll());
+        
+        // Récupérer les derniers suivis d'états d'avancement
+        $latestEtats = array_slice((new EtatAvancementModel())->findAllWithDetails(), 0, 5);
+        
+        $this->render('dashboard/index', [
+            'title' => 'Tableau de Bord',
+            'stats' => [
+                'filieres' => $filieresCount,
+                'modules' => $modulesCount,
+                'etats' => $etatsCount,
+                'utilisateurs' => $usersCount,
+            ],
+            'latestEtats' => $latestEtats,
+        ]);
      }
 
 }

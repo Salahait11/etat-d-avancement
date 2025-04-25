@@ -47,6 +47,44 @@
     -->
 </ul>
 
+<?php if (!empty($stats)): ?>
+<h3>Statistiques</h3>
+<ul>
+    <li>Filières : <?php echo htmlspecialchars($stats['filieres']); ?></li>
+    <li>Modules : <?php echo htmlspecialchars($stats['modules']); ?></li>
+    <li>États d'avancement : <?php echo htmlspecialchars($stats['etats']); ?></li>
+    <li>Utilisateurs : <?php echo htmlspecialchars($stats['utilisateurs']); ?></li>
+</ul>
+<?php endif; ?>
+
+<?php if (!empty($latestEtats)): ?>
+    <h3>Derniers suivis</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date de séance</th>
+                <th>Module</th>
+                <th>Formateur</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($latestEtats as $etat): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars((new DateTime($etat['date_seance']))->format('d/m/Y')); ?></td>
+                    <td><?php echo htmlspecialchars($etat['module_intitule']); ?></td>
+                    <td><?php echo htmlspecialchars($etat['formateur_nom']); ?></td>
+                    <td>
+                        <a href="<?php echo htmlspecialchars($baseUrl ?? ''); ?>/etat-avancement/edit/<?php echo $etat['id']; ?>" class="btn btn-sm btn-outline-primary">Voir</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php else: ?>
+    <p>Aucun suivi récent.</p>
+<?php endif; ?>
+
 <p style="margin-top: 30px;">
     <a href="<?php echo htmlspecialchars($baseUrl ?? ''); ?>/logout" class="button delete-button">Se déconnecter</a>
 </p>

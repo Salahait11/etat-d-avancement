@@ -52,119 +52,252 @@ if (empty($route)) {
 $route = ($route === '/') ? '/' : rtrim($route, '/');
 
 
-// --- Routage (Basé sur la route applicative calculée) ---
-// Ce bloc détermine quel contrôleur et quelle méthode appeler.
+// --- Nouveau Routage avec FastRoute ---
+use FastRoute\RouteCollector;
+
 try {
-    // Instanciation "paresseuse" des contrôleurs (seulement si nécessaire)
-    $homeController = null;
-    $authController = null;
-    // $filiereController = null; // Pour plus tard
+    $dispatcher = FastRoute\simpleDispatcher(function(RouteCollector $r) {
+        // Page d'accueil
+        $r->addRoute('GET', '/', function() {
+            (new \App\Controller\HomeController())->index();
+        });
+        $r->addRoute('GET', '/test-route', function() {
+            (new \App\Controller\HomeController())->test();
+        });
 
-    // Logique de routage simple avec un switch
-    switch ($route) {
-        case '/':
-            // Option 1: La page d'accueil est gérée par HomeController
-            $homeController = $homeController ?? new \App\Controller\HomeController();
-            $homeController->index();
-            // Option 2: La page d'accueil est la page de login si non connecté
-            // $authController = $authController ?? new \App\Controller\AuthController();
-            // $authController->handleHomepage();
-            break;
+        // Authentification
+        $r->addRoute(['GET', 'POST'], '/login', function() {
+            $ctrl = new \App\Controller\AuthController();
+            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+                $ctrl->showLoginForm();
+            } else {
+                $ctrl->processLogin();
+            }
+        });
+        $r->addRoute('GET', '/logout', function() {
+            (new \App\Controller\AuthController())->logout();
+        });
+        $r->addRoute('GET', '/dashboard', function() {
+            (new \App\Controller\AuthController())->showDashboard();
+        });
 
-        case '/test-route':
-            $homeController = $homeController ?? new \App\Controller\HomeController();
-            $homeController->test();
-            break;
+        // Utilisateurs
+        $r->addRoute('GET', '/utilisateurs', function() {
+            (new \App\Controller\UtilisateurController())->index();
+        });
+        $r->addRoute('GET', '/utilisateurs/create', function() {
+            (new \App\Controller\UtilisateurController())->create();
+        });
+        $r->addRoute('POST', '/utilisateurs/store', function() {
+            (new \App\Controller\UtilisateurController())->store();
+        });
+        $r->addRoute('GET', '/utilisateurs/edit/{id:\d+}', function($args) {
+            (new \App\Controller\UtilisateurController())->edit((int)$args['id']);
+        });
+        $r->addRoute('POST', '/utilisateurs/update/{id:\d+}', function($args) {
+            (new \App\Controller\UtilisateurController())->update((int)$args['id']);
+        });
+        $r->addRoute(['POST','GET'], '/utilisateurs/delete/{id:\d+}', function($args) {
+            (new \App\Controller\UtilisateurController())->delete((int)$args['id']);
+        });
 
-        // --- Routes d'Authentification ---
-        case '/login':
-             $authController = $authController ?? new \App\Controller\AuthController();
-             if ($requestMethod === 'GET') {
-                  $authController->showLoginForm(); // Appel réel
-             } elseif ($requestMethod === 'POST') {
-                  $authController->processLogin(); // Appel réel
-             } else {
-                  http_response_code(405);
-                  if ($homeController === null) $homeController = new \App\Controller\HomeController();
-                  $homeController->render('errors/405', ['title' => 'Méthode Non Autorisée']);
-             }
-             break;
+        // Formateurs
+        $r->addRoute('GET', '/formateurs', function() {
+            (new \App\Controller\FormateurController())->index();
+        });
+        $r->addRoute('GET', '/formateurs/add', function() {
+            (new \App\Controller\FormateurController())->add();
+        });
+        $r->addRoute('POST', '/formateurs/store', function() {
+            (new \App\Controller\FormateurController())->store();
+        });
+        $r->addRoute('GET', '/formateurs/edit/{id:\\d+}', function($args) {
+            (new \App\Controller\FormateurController())->edit((int)$args['id']);
+        });
+        $r->addRoute('POST', '/formateurs/update/{id:\\d+}', function($args) {
+            (new \App\Controller\FormateurController())->update((int)$args['id']);
+        });
+        $r->addRoute('POST', '/formateurs/delete/{id:\\d+}', function($args) {
+            (new \App\Controller\FormateurController())->delete((int)$args['id']);
+        });
 
-         case '/logout':
-              $authController = $authController ?? new \App\Controller\AuthController();
-              if ($requestMethod === 'GET' || $requestMethod === 'POST') {
-                   $authController->logout(); // Appel réel
-              } else {
-                   http_response_code(405);
-                   if ($homeController === null) $homeController = new \App\Controller\HomeController();
-                   $homeController->render('errors/405', ['title' => 'Méthode Non Autorisée']);
-              }
-              break;
+        // Objectifs pédagogiques
+        $r->addRoute('GET', '/objectifs-pedagogiques', function() {
+            (new \App\Controller\ObjectifPedagogiqueController())->index();
+        });
+        $r->addRoute('GET', '/objectifs-pedagogiques/add', function() {
+            (new \App\Controller\ObjectifPedagogiqueController())->add();
+        });
+        $r->addRoute('POST', '/objectifs-pedagogiques/store', function() {
+            (new \App\Controller\ObjectifPedagogiqueController())->store();
+        });
+        $r->addRoute('GET', '/objectifs-pedagogiques/edit/{id:\\d+}', function($args) {
+            (new \App\Controller\ObjectifPedagogiqueController())->edit($args['id']);
+        });
+        $r->addRoute('POST', '/objectifs-pedagogiques/update/{id:\\d+}', function($args) {
+            (new \App\Controller\ObjectifPedagogiqueController())->update($args['id']);
+        });
+        $r->addRoute('POST', '/objectifs-pedagogiques/delete/{id:\\d+}', function($args) {
+            (new \App\Controller\ObjectifPedagogiqueController())->delete($args['id']);
+        });
 
-         case '/dashboard':
-              $authController = $authController ?? new \App\Controller\AuthController();
-              // requireLogin est appelé DANS showDashboard maintenant
-              $authController->showDashboard(); // Appel réel
-              break;
+        // Modules (CRUD)
+        $r->addRoute('GET', '/modules', function() {
+            (new \App\Controller\ModuleController())->list();
+        });
+        $r->addRoute('GET', '/modules/add', function() {
+            (new \App\Controller\ModuleController())->add();
+        });
+        $r->addRoute('POST', '/modules/store', function() {
+            (new \App\Controller\ModuleController())->store();
+        });
+        $r->addRoute('GET', '/modules/edit/{id:\d+}', function($args) {
+            (new \App\Controller\ModuleController())->edit((int)$args['id']);
+        });
+        $r->addRoute('POST', '/modules/update/{id:\d+}', function($args) {
+            (new \App\Controller\ModuleController())->update((int)$args['id']);
+        });
+        $r->addRoute(['POST','GET'], '/modules/delete/{id:\d+}', function($args) {
+            (new \App\Controller\ModuleController())->delete((int)$args['id']);
+        });
 
-         // --- Routes pour Filières (Exemple pour plus tard) ---
-         case '/filieres':
-               $authController = $authController ?? new \App\Controller\AuthController();
-               $authController->requireLogin();
+        // Ajoutez ici les autres routes pour filières, contenus, moyens, stratégies, etc.
+        // Exemple pour filières :
+        $r->addRoute('GET', '/filieres', function() {
+            (new \App\Controller\FiliereController())->index();
+        });
+        $r->addRoute('GET', '/filieres/add', function() {
+            (new \App\Controller\FiliereController())->create();
+        });
+        $r->addRoute('POST', '/filieres/store', function() {
+            (new \App\Controller\FiliereController())->store();
+        });
+        $r->addRoute('GET', '/filieres/edit/{id:\\d+}', function($args) {
+            (new \App\Controller\FiliereController())->edit((int)$args['id']);
+        });
+        $r->addRoute('GET', '/filieres/show/{id:\\d+}', function($args) {
+            (new \App\Controller\FiliereController())->show((int)$args['id']);
+        });
+        $r->addRoute('POST', '/filieres/update/{id:\\d+}', function($args) {
+            (new \App\Controller\FiliereController())->update((int)$args['id']);
+        });
+        $r->addRoute(['POST','GET'], '/filieres/delete/{id:\\d+}', function($args) {
+            (new \App\Controller\FiliereController())->delete((int)$args['id']);
+        });
 
-               // $filiereController = new \App\Controller\FiliereController(); // Instancier
-               // $filiereController->list(); // Appeler la méthode list
+        // Routes pour États d'Avancement
+        $r->addRoute('GET', '/etats-avancement', function() {
+            (new \App\Controller\EtatAvancementController())->index();
+        });
+        $r->addRoute('GET', '/etats-avancement/add', function() {
+            (new \App\Controller\EtatAvancementController())->add();
+        });
+        $r->addRoute('POST', '/etats-avancement/store', function() {
+            (new \App\Controller\EtatAvancementController())->store();
+        });
+        $r->addRoute('GET', '/etats-avancement/edit/{id:\\d+}', function($args) {
+            (new \App\Controller\EtatAvancementController())->edit($args['id']);
+        });
+        $r->addRoute('POST', '/etats-avancement/update/{id:\\d+}', function($args) {
+            (new \App\Controller\EtatAvancementController())->update($args['id']);
+        });
+        $r->addRoute(['POST','GET'], '/etats-avancement/delete/{id:\\d+}', function($args) {
+            (new \App\Controller\EtatAvancementController())->delete($args['id']);
+        });
 
-               echo "<h1>Liste des Filières (Implémentation TODO)</h1>";
-               break;
+        // Ajoutez ici les routes pour les autres entités (contenus-seance, moyens-didactiques, etc.)
+        // Contenus de séance (CRUD)
+        $r->addRoute('GET', '/contenus-seance', function() {
+            (new \App\Controller\ContenuSeanceController())->index();
+        });
+        $r->addRoute('GET', '/contenus-seance/add', function() {
+            (new \App\Controller\ContenuSeanceController())->add();
+        });
+        $r->addRoute('POST', '/contenus-seance/store', function() {
+            (new \App\Controller\ContenuSeanceController())->store();
+        });
+        $r->addRoute('GET', '/contenus-seance/edit/{id:\\d+}', function($args) {
+            (new \App\Controller\ContenuSeanceController())->edit($args['id']);
+        });
+        $r->addRoute('POST', '/contenus-seance/update/{id:\\d+}', function($args) {
+            (new \App\Controller\ContenuSeanceController())->update($args['id']);
+        });
+        $r->addRoute('POST', '/contenus-seance/delete/{id:\\d+}', function($args) {
+            (new \App\Controller\ContenuSeanceController())->delete($args['id']);
+        });
 
+        // Moyens didactiques (CRUD)
+        $r->addRoute('GET', '/moyens-didactiques', function() {
+            (new \App\Controller\MoyenDidactiqueController())->index();
+        });
+        $r->addRoute('GET', '/moyens-didactiques/add', function() {
+            (new \App\Controller\MoyenDidactiqueController())->add();
+        });
+        $r->addRoute('POST', '/moyens-didactiques/store', function() {
+            (new \App\Controller\MoyenDidactiqueController())->store();
+        });
+        $r->addRoute('GET', '/moyens-didactiques/edit/{id:\\d+}', function($args) {
+            (new \App\Controller\MoyenDidactiqueController())->edit($args['id']);
+        });
+        $r->addRoute('POST', '/moyens-didactiques/update/{id:\\d+}', function($args) {
+            (new \App\Controller\MoyenDidactiqueController())->update($args['id']);
+        });
+        $r->addRoute('POST', '/moyens-didactiques/delete/{id:\\d+}', function($args) {
+            (new \App\Controller\MoyenDidactiqueController())->delete($args['id']);
+        });
 
-        // --- Route Non Trouvée ---
-        default:
+        // Stratégies d'évaluation (CRUD)
+        $r->addRoute('GET', '/strategies-evaluation', function() {
+            (new \App\Controller\StrategieEvaluationController())->index();
+        });
+        $r->addRoute('GET', '/strategies-evaluation/add', function() {
+            (new \App\Controller\StrategieEvaluationController())->add();
+        });
+        $r->addRoute('POST', '/strategies-evaluation/store', function() {
+            (new \App\Controller\StrategieEvaluationController())->store();
+        });
+        $r->addRoute('GET', '/strategies-evaluation/edit/{id:\\d+}', function($args) {
+            (new \App\Controller\StrategieEvaluationController())->edit($args['id']);
+        });
+        $r->addRoute('POST', '/strategies-evaluation/update/{id:\\d+}', function($args) {
+            (new \App\Controller\StrategieEvaluationController())->update($args['id']);
+        });
+        $r->addRoute('POST', '/strategies-evaluation/delete/{id:\\d+}', function($args) {
+            (new \App\Controller\StrategieEvaluationController())->delete($args['id']);
+        });
+
+    });
+
+    // --- Dispatching FastRoute ---
+    $httpMethod = $_SERVER['REQUEST_METHOD'];
+    $uri = $route;
+    if (false !== $pos = strpos($uri, '?')) {
+        $uri = substr($uri, 0, $pos);
+    }
+    $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
+    switch ($routeInfo[0]) {
+        case FastRoute\Dispatcher::NOT_FOUND:
             http_response_code(404);
-            if ($homeController === null) $homeController = new \App\Controller\HomeController();
-            $homeController->render('errors/404', ['title' => 'Page Non Trouvée']);
+            echo "<h1>404 - Page Non Trouvée</h1>";
+            break;
+        case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
+            http_response_code(405);
+            echo "<h1>405 - Méthode Non Autorisée</h1>";
+            break;
+        case FastRoute\Dispatcher::FOUND:
+            $handler = $routeInfo[1];
+            $vars = $routeInfo[2];
+            if (is_callable($handler)) {
+                $handler($vars);
+            } else {
+                throw new Exception("Handler non callable pour la route.");
+            }
             break;
     }
-
-} catch (\Throwable $e) { // Gestionnaire d'erreur global pour toutes les exceptions/erreurs
-    // Loguer l'erreur de manière détaillée côté serveur
-    error_log("ERREUR APPLICATION : [Code {$e->getCode()}] {$e->getMessage()}\n{$e->getTraceAsString()}");
-
-    // Définir le code de statut HTTP (utiliser celui de l'exception si valide, sinon 500)
-    $statusCode = ($e->getCode() >= 400 && $e->getCode() < 600) ? $e->getCode() : 500;
-    http_response_code($statusCode);
-
-    // Afficher une page d'erreur appropriée selon l'environnement
-    // Utiliser la constante APP_ENV définie depuis config/app.php
-    if (defined('APP_ENV') && APP_ENV === 'development') {
-        // Affichage détaillé en développement
-        echo "<!DOCTYPE html><html><head><title>Erreur Application</title><style>body{font-family: sans-serif; margin: 20px;} h1{color: #dc3545;} pre{background-color: #f8f9fa; padding: 15px; border: 1px solid #dee2e6; border-radius: 4px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px;}</style></head><body>";
-        echo "<h1>Erreur Application (Code: {$statusCode})</h1>";
-        echo "<pre><strong>Type:</strong> " . get_class($e) . "</pre>";
-        echo "<pre><strong>Message:</strong> " . htmlspecialchars($e->getMessage()) . "</pre>";
-        echo "<pre><strong>Fichier:</strong> " . htmlspecialchars($e->getFile()) . " @ Ligne: " . htmlspecialchars((string)$e->getLine()) . "</pre>";
-        echo "<h3>Trace:</h3><pre>" . htmlspecialchars($e->getTraceAsString()) . "</pre>";
-        // Afficher l'erreur précédente si elle existe (utile pour les erreurs PDO)
-        if ($e->getPrevious()) {
-             echo "<h3>Erreur Précédente:</h3><pre>" . htmlspecialchars($e->getPrevious()->getMessage()) . "\n" . htmlspecialchars($e->getPrevious()->getTraceAsString()) . "</pre>";
-        }
-        echo "</body></html>";
-    } else {
-        // Affichage générique en production (utiliser une vue serait mieux)
-        // Tenter d'utiliser le système de rendu pour la page 500
-        try {
-             // On a besoin d'une instance de BaseController pour utiliser render
-             // Créer une instance anonyme ou utiliser un contrôleur déjà chargé
-             $errorController = new class extends \App\Core\BaseController {}; // Instance anonyme
-             $errorController->render('errors/500', ['title' => 'Erreur Serveur']);
-        } catch (\Throwable $renderError) {
-             // Si même le rendu de la page 500 échoue, afficher du HTML basique
-             error_log("ERREUR lors du rendu de la page 500: " . $renderError->getMessage());
-             echo "<!DOCTYPE html><html><head><title>Erreur Serveur</title></head><body><h1>Erreur Serveur</h1><p>Une erreur interne critique est survenue.</p></body></html>";
-        }
-    }
-    exit; // Arrêter l'exécution après gestion de l'erreur
+} catch (Exception $e) {
+    http_response_code(500);
+    echo "<h1>Erreur interne du serveur</h1>";
+    echo "<p>Une erreur est survenue : " . $e->getMessage() . "</p>";
 }
 
 ?>

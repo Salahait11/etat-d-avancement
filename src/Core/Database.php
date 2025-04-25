@@ -103,6 +103,16 @@ class Database
     {
         return $this->pdo;
     }
+    
+    /**
+     * Récupère l'ID de la dernière ligne insérée.
+     *
+     * @return string L'ID de la dernière insertion.
+     */
+    public function lastInsertId(): string
+    {
+        return $this->pdo->lastInsertId();
+    }
 
     /**
      * Empêche le clonage de l'instance (Singleton).

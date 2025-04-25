@@ -147,4 +147,64 @@ abstract class BaseController
         }
         return null;
     }
+    
+    /**
+     * Récupère les rôles de l'utilisateur connecté depuis la session.
+     *
+     * @return array Tableau des noms de rôles, ou tableau vide si non connecté ou pas de rôles.
+     */
+    protected function getUserRoles(): array
+    {
+        if ($this->isUserLoggedIn() && isset($_SESSION['user']['roles']) && is_array($_SESSION['user']['roles'])) {
+            return $_SESSION['user']['roles'];
+        }
+        return []; // Retourne un tableau vide par défaut
+    }
+
+    /**
+     * Vérifie si l'utilisateur connecté possède un rôle spécifique.
+     *
+     * @param string $roleName Le nom exact du rôle à vérifier (sensible à la casse).
+     * @return bool True si l'utilisateur a le rôle, false sinon.
+     */
+    protected function hasRole(string $roleName): bool
+    {
+        $userRoles = $this->getUserRoles();
+        // in_array() vérifie si une valeur existe dans un tableau
+        return in_array($roleName, $userRoles, true); // Le 'true' rend la comparaison stricte (type et valeur)
+    }
+
+    /**
+     * Raccourci pour vérifier si l'utilisateur est Administrateur.
+     * Suppose que le rôle admin s'appelle exactement 'admin'.
+     * @return bool
+     */
+    protected function isAdmin(): bool
+    {
+         return $this->hasRole('admin'); // Adaptez 'admin' si le nom est différent dans votre DB
+    }
+
+    /**
+     * Raccourci pour vérifier si l'utilisateur est Formateur.
+     * Suppose que le rôle formateur s'appelle exactement 'formateur'.
+     * @return bool
+     */
+     protected function isFormateur(): bool
+     {
+          return $this->hasRole('formateur'); // Adaptez 'formateur' si besoin
+     }
+
+     // Ajouter d'autres raccourcis si nécessaire (isEtudiant, isSecretaire...)
+
+    /**
+     * Exige un accès Admin, sinon redirige.
+     */
+    protected function requireAdmin(): void
+    {
+        $this->requireLogin();
+        if (!$this->isAdmin()) {
+            $this->setFlashMessage('error', 'Accès refusé. Vous devez être administrateur pour accéder à cette page.');
+            $this->redirect('/dashboard');
+        }
+    }
 }
