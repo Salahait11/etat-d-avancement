@@ -193,4 +193,33 @@ class ModuleModel
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    /**
+     * Récupère un module par son ID
+     *
+     * @param int $id ID du module
+     * @return array|false Données du module ou false si non trouvé
+     */
+    public function findById(int $id): array|false
+    {
+        $sql = "SELECT m.*, f.nom as filiere_nom 
+                FROM module m 
+                LEFT JOIN filiere f ON m.id_filiere = f.id 
+                WHERE m.id = :id";
+        
+        $stmt = $this->db->query($sql, [':id' => $id]);
+        return $stmt ? $stmt->fetch(PDO::FETCH_ASSOC) : false;
+    }
+
+    /**
+     * Récupère tous les modules
+     *
+     * @return array Liste des modules
+     */
+    public function findAll(): array
+    {
+        $sql = "SELECT * FROM module ORDER BY intitule ASC";
+        $stmt = $this->db->query($sql);
+        return $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : [];
+    }
 }

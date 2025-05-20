@@ -115,6 +115,55 @@ class Database
     }
 
     /**
+     * Vérifie si une transaction est active
+     * 
+     * @return bool True si une transaction est active
+     */
+    public function inTransaction(): bool
+    {
+        return $this->pdo->inTransaction();
+    }
+
+    /**
+     * Démarre une transaction
+     * 
+     * @return bool True si la transaction a démarré avec succès
+     */
+    public function beginTransaction(): bool
+    {
+        if ($this->inTransaction()) {
+            return true; // Une transaction est déjà active
+        }
+        return $this->pdo->beginTransaction();
+    }
+
+    /**
+     * Valide une transaction
+     * 
+     * @return bool True si la transaction a été validée avec succès
+     */
+    public function commit(): bool
+    {
+        if (!$this->inTransaction()) {
+            return false; // Pas de transaction active
+        }
+        return $this->pdo->commit();
+    }
+
+    /**
+     * Annule une transaction
+     * 
+     * @return bool True si la transaction a été annulée avec succès
+     */
+    public function rollBack(): bool
+    {
+        if (!$this->inTransaction()) {
+            return false; // Pas de transaction active
+        }
+        return $this->pdo->rollBack();
+    }
+
+    /**
      * Empêche le clonage de l'instance (Singleton).
      */
     private function __clone() {}

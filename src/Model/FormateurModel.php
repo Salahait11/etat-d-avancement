@@ -46,19 +46,32 @@ class FormateurModel
      */
     public function create(array $data): bool
     {
-        // Insertion formateur
-        $sql = "INSERT INTO formateur (id_utilisateur, specialite) VALUES (:user_id, :specialite)";
-        $res = $this->db->query($sql, [
-            ':user_id' => $data['id_utilisateur'],
-            ':specialite' => $data['specialite']
-        ]);
-        if (!$res) {
+        try {
+            $this->db->beginTransaction();
+            
+            // Insertion formateur
+            $sql = "INSERT INTO formateur (id_utilisateur, specialite) VALUES (:user_id, :specialite)";
+            $res = $this->db->query($sql, [
+                ':user_id' => $data['id_utilisateur'],
+                ':specialite' => $data['specialite']
+            ]);
+            if (!$res) {
+                throw new \Exception("Erreur lors de l'insertion dans la table formateur");
+            }
+            
+            // Assigner rôle formateur (ID 6 pour le rôle formateur)
+            $sql2 = "INSERT INTO utilisateur_roles (id_utilisateur, id_roles) VALUES (:user_id, 6)";
+            $res2 = $this->db->query($sql2, [':user_id' => $data['id_utilisateur']]);
+            if (!$res2) {
+                throw new \Exception("Erreur lors de l'assignation du rôle formateur");
+            }
+            
+            $this->db->commit();
+            return true;
+        } catch (\Exception $e) {
+            $this->db->rollBack();
             return false;
         }
-        // Assigner rôle formateur
-        $sql2 = "INSERT INTO utilisateur_roles (id_utilisateur, role) VALUES (:user_id, 'formateur')";
-        $this->db->query($sql2, [':user_id' => $data['id_utilisateur']]);
-        return true;
     }
 
     /**
@@ -101,7 +114,7 @@ class FormateurModel
         // Supprimer formateur
         $this->db->query("DELETE FROM formateur WHERE id = :id", [':id' => $id]);
         // Retirer rôle formateur
-        $this->db->query("DELETE FROM utilisateur_roles WHERE id_utilisateur = :user_id AND role = 'formateur'", [':user_id' => $userId]);
+        $this->db->query("DELETE FROM utilisateur_roles WHERE id_utilisateur = :user_id AND id_roles = 6", [':user_id' => $userId]);
         return true;
     }
 }

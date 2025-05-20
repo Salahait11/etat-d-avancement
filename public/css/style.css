@@ -113,6 +113,7 @@ body {
     background-color: var(--gray-100);
     line-height: 1.5;
     margin: 0;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -170,6 +171,197 @@ img {
     margin-left: auto;
 }
 
+/* Conteneurs responsives */
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* Grille responsive */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col {
+    flex: 1 0 0%;
+    padding: 0 15px;
+    margin-bottom: 1rem;
+}
+
+/* Colonnes responsives */
+@media (min-width: 576px) {
+    .col-sm-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+    
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    .col-md-8 {
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+    }
+}
+
+/* Ajustements pour les tableaux sur petits écrans */
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Navigation responsive */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: var(--white);
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-md);
+        margin-top: 0.5rem;
+    }
+    
+    .navbar-nav {
+        flex-direction: column;
+    }
+    
+    .nav-item {
+        margin: 0.25rem 0;
+    }
+}
+
+/* Cartes responsives */
+.card {
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s ease-in-out;
+    height: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Boutons responsives */
+.btn {
+    white-space: nowrap;
+}
+
+/* Formulaire responsive */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Ajustements typographiques pour petits écrans */
+@media (max-width: 575.98px) {
+    h1 {
+        font-size: var(--font-size-2xl);
+    }
+    
+    h2 {
+        font-size: var(--font-size-xl);
+    }
+    
+    h3 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-group {
+        width: 100%;
+    }
+    
+    .btn-group .btn {
+        width: auto;
+        flex: 1;
+    }
+}
+
+/* Ajustements pour le tableau de bord */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 767.98px) {
+    .dashboard-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ajustements pour les formulaires sur petits écrans */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.form-col {
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 1 0 0%;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 767.98px) {
+    .form-row {
+        flex-direction: column;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    
+    .form-col {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
 .main-content {
     flex: 1;
     padding: var(--spacing-8) 0;
@@ -197,12 +389,50 @@ img {
 }
 
 /* Footer */
+/* Footer */
 footer {
     margin-top: auto;
-    padding: var(--spacing-6) 0;
     background-color: var(--gray-900);
     color: var(--gray-200);
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-4);
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+@media (max-width: 991.98px) {
+    .footer-content {
+        gap: 2rem;
+    }
+    
+    .footer-section {
+        flex: 0 0 calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .footer-section {
+        width: 100%;
+        flex: 1 0 100%;
+    }
 }
 
 footer a {
@@ -1233,4 +1463,14 @@ footer a:hover {
 
 .badge.bg-primary:hover {
     background-color: #0a58ca !important;
+}
+
+/* Test de chargement CSS */
+body {
+    background-color: #f8f9fa;
+}
+
+.main-content {
+    margin-top: 80px; /* Pour compenser la navbar fixe */
+    min-height: calc(100vh - 200px); /* Pour un footer toujours en bas */
 }

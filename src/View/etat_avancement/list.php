@@ -98,12 +98,12 @@
                         </thead>
                         <tbody>
                             <?php foreach ($etatsAvancement as $etat): ?>
-                                <tr data-date="<?= $etat['date_seance'] ?>">
+                                <tr data-date="<?= $etat['date'] ?>">
                                     <td><?= htmlspecialchars($etat['id']) ?></td>
-                                    <td class="text-nowrap"><?= (new DateTime($etat['date_seance']))->format('d/m/Y') ?></td>
+                                    <td class="text-nowrap"><?= (new DateTime($etat['date']))->format('d/m/Y') ?></td>
                                     <td><?= htmlspecialchars($etat['module_intitule']) ?></td>
                                     <td><?= htmlspecialchars($etat['formateur_nom']) ?></td>
-                                    <td class="text-center"><?= htmlspecialchars($etat['duree_realisee']) ?></td>
+                                    <td class="text-center"><?= htmlspecialchars($etat['nbr_heure']) ?></td>
                                     <td class="text-center">
                                         <div class="btn-group" role="group">
                                             <a href="<?= BASE_URL ?>/etats-avancement/view/<?= $etat['id'] ?>" class="btn btn-sm btn-outline-info" title="Voir les détails">
@@ -116,7 +116,7 @@
                                                 <button type="button" class="btn btn-sm btn-outline-danger btn-delete" title="Supprimer" 
                                                         data-bs-toggle="modal" data-bs-target="#deleteModal" 
                                                         data-id="<?= $etat['id'] ?>" 
-                                                        data-item-name="l'état d'avancement du <?= (new DateTime($etat['date_seance']))->format('d/m/Y') ?>">
+                                                        data-item-name="l'état d'avancement du <?= (new DateTime($etat['date']))->format('d/m/Y') ?>">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             <?php endif; ?>

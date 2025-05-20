@@ -23,7 +23,7 @@ class UtilisateurController extends BaseController
     /**
      * Vérifie que l'utilisateur est admin, sinon redirige
      */
-    private function requireAdmin(): void
+    protected function requireAdmin(): void
     {
         $this->requireLogin();
         

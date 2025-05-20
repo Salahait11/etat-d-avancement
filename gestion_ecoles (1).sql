@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 24 avr. 2025 à 22:38
+-- Généré le : mar. 20 mai 2025 à 02:13
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -24,19 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `contenu_seance`
---
-
-CREATE TABLE `contenu_seance` (
-  `id` int(11) NOT NULL,
-  `contenu` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `etat_avancement`
 --
 
@@ -44,31 +31,26 @@ CREATE TABLE `etat_avancement` (
   `id` int(11) NOT NULL,
   `date` date NOT NULL,
   `heure` datetime NOT NULL,
-  `description` text NOT NULL,
   `nbr_heure_cumulee` int(11) NOT NULL,
   `nbr_heure` int(11) NOT NULL,
-  `disposition` int(11) NOT NULL,
-  `observation` text DEFAULT NULL,
-  `taux_realisation` decimal(5,2) NOT NULL CHECK (`taux_realisation` >= 0 and `taux_realisation` <= 100),
+  `disposition` tinyint(1) NOT NULL DEFAULT 0,
+  `commentaire` text DEFAULT NULL,
+  `contenu_seance` text DEFAULT NULL,
+  `difficultes` text DEFAULT NULL,
+  `solutions` text DEFAULT NULL,
+  `taux_realisation` decimal(5,2) NOT NULL DEFAULT 0.00 CHECK (`taux_realisation` >= 0 and `taux_realisation` <= 100),
   `id_formateur` int(11) NOT NULL,
   `id_module` int(11) NOT NULL,
-  `id_objectif_pedagogique` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `etat_avancement_contenu`
+-- Déchargement des données de la table `etat_avancement`
 --
 
-CREATE TABLE `etat_avancement_contenu` (
-  `id` int(11) NOT NULL,
-  `id_etat_avancement` int(11) NOT NULL,
-  `id_contenu_seance` int(11) NOT NULL,
-  `statut` enum('realise','partiel','non_realise') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `etat_avancement` (`id`, `date`, `heure`, `nbr_heure_cumulee`, `nbr_heure`, `disposition`, `commentaire`, `contenu_seance`, `difficultes`, `solutions`, `taux_realisation`, `id_formateur`, `id_module`, `created_at`, `updated_at`) VALUES
+(10, '2025-05-21', '2025-05-21 03:00:00', 2, 2, 1, 'sss', 'test', 'sss', 'www', 50.00, 1, 2, '2025-05-19 22:04:46', '2025-05-19 23:52:49');
 
 -- --------------------------------------------------------
 
@@ -83,6 +65,13 @@ CREATE TABLE `etat_avancement_moyen` (
   `statut` enum('utilise','non_utilise') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `etat_avancement_moyen`
+--
+
+INSERT INTO `etat_avancement_moyen` (`id`, `id_etat_avancement`, `id_moyen_didactique`, `statut`) VALUES
+(13, 10, 1, 'non_utilise');
+
 -- --------------------------------------------------------
 
 --
@@ -95,6 +84,13 @@ CREATE TABLE `etat_avancement_objectif` (
   `id_objectif_pedagogique` int(11) NOT NULL,
   `statut` enum('atteint','en_cours','non_atteint') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `etat_avancement_objectif`
+--
+
+INSERT INTO `etat_avancement_objectif` (`id`, `id_etat_avancement`, `id_objectif_pedagogique`, `statut`) VALUES
+(16, 10, 1, 'en_cours');
 
 -- --------------------------------------------------------
 
@@ -109,17 +105,12 @@ CREATE TABLE `etat_avancement_strategie` (
   `statut` enum('appliquee','non_appliquee') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Structure de la table `etat_contenu_seance`
+-- Déchargement des données de la table `etat_avancement_strategie`
 --
 
-CREATE TABLE `etat_contenu_seance` (
-  `id_etat_avancement` int(11) NOT NULL,
-  `id_contenu_seance` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+INSERT INTO `etat_avancement_strategie` (`id`, `id_etat_avancement`, `id_strategie_evaluation`, `statut`) VALUES
+(11, 10, 1, 'non_appliquee');
 
 -- --------------------------------------------------------
 
@@ -226,6 +217,13 @@ CREATE TABLE `moyen_didactique` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Déchargement des données de la table `moyen_didactique`
+--
+
+INSERT INTO `moyen_didactique` (`id`, `moyen`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Moyens Didactiques1', '', '2025-05-19 20:18:14', '2025-05-19 20:18:14');
+
 -- --------------------------------------------------------
 
 --
@@ -239,6 +237,13 @@ CREATE TABLE `objectif_pedagogique` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `objectif_pedagogique`
+--
+
+INSERT INTO `objectif_pedagogique` (`id`, `objectif`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Objectif Pédagogique 1', 'test', '2025-05-19 20:17:51', '2025-05-19 20:17:51');
 
 -- --------------------------------------------------------
 
@@ -277,6 +282,13 @@ CREATE TABLE `strategie_evaluation` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Déchargement des données de la table `strategie_evaluation`
+--
+
+INSERT INTO `strategie_evaluation` (`id`, `strategie`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Stratégie d\'Évaluation 1', '', '2025-05-19 20:18:20', '2025-05-19 20:18:20');
+
 -- --------------------------------------------------------
 
 --
@@ -299,7 +311,8 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `mot_de_passe`, `email`, `statut`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'Test', '$2y$10$gRw/LlfTmY/0lgGLJUxezOPK15WB/wZ8ycUsR/h8rm9KTnG.ELQ6S', 'admin@test.com', 'actif', '2025-04-24 17:45:40', '2025-04-24 17:51:01');
+(1, 'Admin', 'Test', '$2y$10$gRw/LlfTmY/0lgGLJUxezOPK15WB/wZ8ycUsR/h8rm9KTnG.ELQ6S', 'admin@test.com', 'actif', '2025-04-24 17:45:40', '2025-04-24 17:51:01'),
+(3, 'Salah', 'System', '$2y$10$ZgDK2KJpMRs9hrgPlIHnGuS4Lb9PjsP3QjyZUoQ8tA4dF7z6n2jju', 'admin@system.com', 'actif', '2025-05-19 21:17:24', '2025-05-20 00:08:55');
 
 -- --------------------------------------------------------
 
@@ -318,17 +331,12 @@ CREATE TABLE `utilisateur_roles` (
 --
 
 INSERT INTO `utilisateur_roles` (`id_utilisateur`, `id_roles`, `created_at`) VALUES
-(1, 5, '2025-04-24 19:33:49');
+(1, 5, '2025-04-24 19:33:49'),
+(3, 5, '2025-05-19 21:17:24');
 
 --
 -- Index pour les tables déchargées
 --
-
---
--- Index pour la table `contenu_seance`
---
-ALTER TABLE `contenu_seance`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `etat_avancement`
@@ -336,16 +344,7 @@ ALTER TABLE `contenu_seance`
 ALTER TABLE `etat_avancement`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_formateur` (`id_formateur`),
-  ADD KEY `fk_module` (`id_module`),
-  ADD KEY `fk_objectif_pedagogique` (`id_objectif_pedagogique`);
-
---
--- Index pour la table `etat_avancement_contenu`
---
-ALTER TABLE `etat_avancement_contenu`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id_etat_avancement_id_contenu_seance` (`id_etat_avancement`,`id_contenu_seance`),
-  ADD KEY `id_contenu_seance` (`id_contenu_seance`);
+  ADD KEY `fk_module` (`id_module`);
 
 --
 -- Index pour la table `etat_avancement_moyen`
@@ -370,13 +369,6 @@ ALTER TABLE `etat_avancement_strategie`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_etat_avancement_id_strategie_evaluation` (`id_etat_avancement`,`id_strategie_evaluation`),
   ADD KEY `id_strategie_evaluation` (`id_strategie_evaluation`);
-
---
--- Index pour la table `etat_contenu_seance`
---
-ALTER TABLE `etat_contenu_seance`
-  ADD PRIMARY KEY (`id_etat_avancement`,`id_contenu_seance`),
-  ADD KEY `id_contenu_seance` (`id_contenu_seance`);
 
 --
 -- Index pour la table `etat_evaluation`
@@ -457,40 +449,28 @@ ALTER TABLE `utilisateur_roles`
 --
 
 --
--- AUTO_INCREMENT pour la table `contenu_seance`
---
-ALTER TABLE `contenu_seance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT pour la table `etat_avancement`
 --
 ALTER TABLE `etat_avancement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `etat_avancement_contenu`
---
-ALTER TABLE `etat_avancement_contenu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `etat_avancement_moyen`
 --
 ALTER TABLE `etat_avancement_moyen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `etat_avancement_objectif`
 --
 ALTER TABLE `etat_avancement_objectif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `etat_avancement_strategie`
 --
 ALTER TABLE `etat_avancement_strategie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `filiere`
@@ -514,13 +494,13 @@ ALTER TABLE `module`
 -- AUTO_INCREMENT pour la table `moyen_didactique`
 --
 ALTER TABLE `moyen_didactique`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `objectif_pedagogique`
 --
 ALTER TABLE `objectif_pedagogique`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `roles`
@@ -532,13 +512,13 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT pour la table `strategie_evaluation`
 --
 ALTER TABLE `strategie_evaluation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées
@@ -549,15 +529,7 @@ ALTER TABLE `utilisateur`
 --
 ALTER TABLE `etat_avancement`
   ADD CONSTRAINT `fk_formateur` FOREIGN KEY (`id_formateur`) REFERENCES `formateur` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_module` FOREIGN KEY (`id_module`) REFERENCES `module` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `fk_objectif_pedagogique` FOREIGN KEY (`id_objectif_pedagogique`) REFERENCES `objectif_pedagogique` (`id`) ON DELETE CASCADE;
-
---
--- Contraintes pour la table `etat_avancement_contenu`
---
-ALTER TABLE `etat_avancement_contenu`
-  ADD CONSTRAINT `etat_avancement_contenu_ibfk_1` FOREIGN KEY (`id_etat_avancement`) REFERENCES `etat_avancement` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `etat_avancement_contenu_ibfk_2` FOREIGN KEY (`id_contenu_seance`) REFERENCES `contenu_seance` (`id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `fk_module` FOREIGN KEY (`id_module`) REFERENCES `module` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `etat_avancement_moyen`
@@ -579,13 +551,6 @@ ALTER TABLE `etat_avancement_objectif`
 ALTER TABLE `etat_avancement_strategie`
   ADD CONSTRAINT `etat_avancement_strategie_ibfk_1` FOREIGN KEY (`id_etat_avancement`) REFERENCES `etat_avancement` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `etat_avancement_strategie_ibfk_2` FOREIGN KEY (`id_strategie_evaluation`) REFERENCES `strategie_evaluation` (`id`) ON DELETE CASCADE;
-
---
--- Contraintes pour la table `etat_contenu_seance`
---
-ALTER TABLE `etat_contenu_seance`
-  ADD CONSTRAINT `etat_contenu_seance_ibfk_1` FOREIGN KEY (`id_etat_avancement`) REFERENCES `etat_avancement` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `etat_contenu_seance_ibfk_2` FOREIGN KEY (`id_contenu_seance`) REFERENCES `contenu_seance` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `etat_evaluation`

@@ -19,6 +19,11 @@ abstract class BaseController
     public function __construct()
     {
         $this->db = Database::getInstance(); // Obtient l'instance Singleton
+        
+        // Initialisation du token CSRF s'il n'existe pas
+        if (!isset($_SESSION['csrf_token'])) {
+            $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+        }
     }
 
     /**

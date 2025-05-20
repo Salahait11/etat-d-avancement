@@ -39,7 +39,7 @@ class UtilisateurModel
      */
     public function findById(int $id): array|false
     {
-        $sql = "SELECT id, nom, prenom, email, statut, created_at, updated_at 
+        $sql = "SELECT id, nom, prenom, email, mot_de_passe, statut, created_at, updated_at 
                 FROM utilisateur 
                 WHERE id = :id 
                 LIMIT 1";
@@ -259,11 +259,11 @@ class UtilisateurModel
                 FROM utilisateur u
                 JOIN utilisateur_roles ur ON u.id = ur.id_utilisateur
                 JOIN roles r ON ur.id_roles = r.id
-                WHERE r.nom = :roleName
+                WHERE r.nom = :role_name
+                AND u.statut = 'actif'
                 ORDER BY u.nom, u.prenom";
         
-        $stmt = $this->db->query($sql, [':roleName' => $roleName]);
-        return $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : [];
+        return $this->db->query($sql, [':role_name' => $roleName])->fetchAll();
     }
     
     /**

@@ -21,7 +21,7 @@ class FiliereController extends BaseController
     /**
      * Méthode pour vérifier l'accès Admin et rediriger si non autorisé
      */
-    private function requireAdmin(): void
+    protected function requireAdmin(): void
     {
         $this->requireLogin(); // D'abord vérifier s'il est connecté
         if (!$this->isAdmin()) { // Ensuite vérifier s'il est admin

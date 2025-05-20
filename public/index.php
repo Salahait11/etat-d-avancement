@@ -55,6 +55,22 @@ $route = ($route === '/') ? '/' : rtrim($route, '/');
 // --- Nouveau Routage avec FastRoute ---
 use FastRoute\RouteCollector;
 
+// Afficher toutes les erreurs
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Configurer le logging
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/../logs/php-error.log');
+
+// Log de débogage
+error_log("=== DÉBUT DE LA REQUÊTE ===");
+error_log("URI demandée : " . $requestUri);
+error_log("Méthode HTTP : " . $requestMethod);
+error_log("Chemin de base : " . $urlBasePath);
+error_log("Route calculée : " . $route);
+
 try {
     $dispatcher = FastRoute\simpleDispatcher(function(RouteCollector $r) {
         // Page d'accueil
@@ -104,6 +120,9 @@ try {
         // Formateurs
         $r->addRoute('GET', '/formateurs', function() {
             (new \App\Controller\FormateurController())->index();
+        });
+        $r->addRoute('GET', '/api/formateurs/{module_id:\d+}', function($args) {
+            (new \App\Controller\FormateurController())->getByModule((int)$args['module_id']);
         });
         $r->addRoute('GET', '/formateurs/add', function() {
             (new \App\Controller\FormateurController())->add();
@@ -185,7 +204,7 @@ try {
             (new \App\Controller\FiliereController())->delete((int)$args['id']);
         });
 
-        // Routes pour États d'Avancement
+        // États d'avancement
         $r->addRoute('GET', '/etats-avancement', function() {
             (new \App\Controller\EtatAvancementController())->index();
         });
@@ -195,14 +214,17 @@ try {
         $r->addRoute('POST', '/etats-avancement/store', function() {
             (new \App\Controller\EtatAvancementController())->store();
         });
-        $r->addRoute('GET', '/etats-avancement/edit/{id:\\d+}', function($args) {
-            (new \App\Controller\EtatAvancementController())->edit($args['id']);
+        $r->addRoute('GET', '/etats-avancement/view/{id:\d+}', function($args) {
+            (new \App\Controller\EtatAvancementController())->view((int)$args['id']);
         });
-        $r->addRoute('POST', '/etats-avancement/update/{id:\\d+}', function($args) {
-            (new \App\Controller\EtatAvancementController())->update($args['id']);
+        $r->addRoute('GET', '/etats-avancement/edit/{id:\d+}', function($args) {
+            (new \App\Controller\EtatAvancementController())->edit((int)$args['id']);
         });
-        $r->addRoute(['POST','GET'], '/etats-avancement/delete/{id:\\d+}', function($args) {
-            (new \App\Controller\EtatAvancementController())->delete($args['id']);
+        $r->addRoute('POST', '/etats-avancement/update/{id:\d+}', function($args) {
+            (new \App\Controller\EtatAvancementController())->update((int)$args['id']);
+        });
+        $r->addRoute('POST', '/etats-avancement/delete/{id:\d+}', function($args) {
+            (new \App\Controller\EtatAvancementController())->delete((int)$args['id']);
         });
 
         // Ajoutez ici les routes pour les autres entités (contenus-seance, moyens-didactiques, etc.)
@@ -264,6 +286,17 @@ try {
         });
         $r->addRoute('POST', '/strategies-evaluation/delete/{id:\\d+}', function($args) {
             (new \App\Controller\StrategieEvaluationController())->delete($args['id']);
+        });
+
+        // Routes du profil
+        $r->addRoute('GET', '/profile', function() {
+            (new \App\Controller\ProfileController())->index();
+        });
+        $r->addRoute('GET', '/profile/edit', function() {
+            (new \App\Controller\ProfileController())->edit();
+        });
+        $r->addRoute('POST', '/profile/update', function() {
+            (new \App\Controller\ProfileController())->update();
         });
 
     });

@@ -32,11 +32,11 @@
     </li>
     <li>
         <a href="<?php echo htmlspecialchars($baseUrl ?? ''); ?>/modules" class="button secondary-button">Gérer les Modules</a>
-        <span style="font-size: 0.9em; color: #6c757d;">(Implémentation future)</span>
+        <span style="font-size: 0.9em; color: #6c757d;">(Voir la liste, ajouter, modifier, supprimer)</span>
     </li>
     <li>
-        <a href="<?php echo htmlspecialchars($baseUrl ?? ''); ?>/etat-avancement" class="button secondary-button">Suivi Pédagogique</a>
-        <span style="font-size: 0.9em; color: #6c757d;">(Implémentation future)</span>
+        <a href="<?php echo htmlspecialchars($baseUrl ?? ''); ?>/etats-avancement" class="button secondary-button">Suivi Pédagogique</a>
+        <span style="font-size: 0.9em; color: #6c757d;">(Voir les suivis d'avancement)</span>
     </li>
     <?php // Ajouter d'autres liens pertinents selon les rôles plus tard ?>
     <!-- Exemple:
@@ -71,11 +71,17 @@
         <tbody>
             <?php foreach ($latestEtats as $etat): ?>
                 <tr>
-                    <td><?php echo htmlspecialchars((new DateTime($etat['date_seance']))->format('d/m/Y')); ?></td>
+                    <td><?php 
+                        if (!empty($etat['date_seance'])) {
+                            echo htmlspecialchars((new DateTime($etat['date_seance']))->format('d/m/Y'));
+                        } else {
+                            echo 'Non définie';
+                        }
+                    ?></td>
                     <td><?php echo htmlspecialchars($etat['module_intitule']); ?></td>
                     <td><?php echo htmlspecialchars($etat['formateur_nom']); ?></td>
                     <td>
-                        <a href="<?php echo htmlspecialchars($baseUrl ?? ''); ?>/etat-avancement/edit/<?php echo $etat['id']; ?>" class="btn btn-sm btn-outline-primary">Voir</a>
+                        <a href="<?php echo htmlspecialchars($baseUrl ?? ''); ?>/etats-avancement/edit/<?php echo $etat['id']; ?>" class="btn btn-sm btn-outline-primary">Voir</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
