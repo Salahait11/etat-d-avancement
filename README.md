@@ -5,6 +5,9 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Stable-brightgreen.svg)]()
 
+> © 2024 - Tous droits réservés - Développé par Salah Ait hammou
+> Ce projet est protégé par le droit d'auteur. Toute modification ou redistribution doit conserver cette mention.
+
 ## 📝 Description
 Système de gestion des états d'avancement des formations, permettant aux formateurs de suivre et documenter la progression des modules de formation. L'application utilise une architecture MVC (Modèle-Vue-Contrôleur) et implémente les bonnes pratiques de développement PHP moderne.
 
@@ -227,7 +230,5 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 ## 👥 Auteurs
 - [Salah Ait hammou] - Développeur principal
 
-
-
 ---
-*Dernière mise à jour : 2025-05-20 01:16* 📅
+*Dernière mise à jour : 2025-05-20 17:47* 📅
