@@ -903,3 +903,23 @@
 [20-May-2025 17:58:46 Europe/Berlin] Méthode HTTP : GET
 [20-May-2025 17:58:46 Europe/Berlin] Chemin de base : /etat-d-avancement
 [20-May-2025 17:58:46 Europe/Berlin] Route calculée : /profile
+[20-May-2025 20:28:59 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[20-May-2025 20:28:59 Europe/Berlin] URI demandée : /etat-d-avancement/login
+[20-May-2025 20:28:59 Europe/Berlin] Méthode HTTP : POST
+[20-May-2025 20:28:59 Europe/Berlin] Chemin de base : /etat-d-avancement
+[20-May-2025 20:28:59 Europe/Berlin] Route calculée : /login
+[20-May-2025 20:29:00 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[20-May-2025 20:29:00 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
+[20-May-2025 20:29:00 Europe/Berlin] Méthode HTTP : GET
+[20-May-2025 20:29:00 Europe/Berlin] Chemin de base : /etat-d-avancement
+[20-May-2025 20:29:00 Europe/Berlin] Route calculée : /dashboard
+[21-May-2025 00:49:27 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[21-May-2025 00:49:27 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
+[21-May-2025 00:49:27 Europe/Berlin] Méthode HTTP : GET
+[21-May-2025 00:49:27 Europe/Berlin] Chemin de base : /etat-d-avancement
+[21-May-2025 00:49:27 Europe/Berlin] Route calculée : /dashboard
+[21-May-2025 00:49:27 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[21-May-2025 00:49:27 Europe/Berlin] URI demandée : /etat-d-avancement/login
+[21-May-2025 00:49:27 Europe/Berlin] Méthode HTTP : GET
+[21-May-2025 00:49:27 Europe/Berlin] Chemin de base : /etat-d-avancement
+[21-May-2025 00:49:27 Europe/Berlin] Route calculée : /login
