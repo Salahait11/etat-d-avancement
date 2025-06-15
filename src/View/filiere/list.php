@@ -50,13 +50,15 @@
                                     <i class="fas fa-edit"></i> Modifier
                                 </a>
                                 
+                                <?php if (!isset($filiere['is_used']) || !$filiere['is_used']): ?>
                                 <!-- Formulaire POST pour la suppression -->
                                 <form action="<?= BASE_URL ?>/filieres/delete/<?= $filiere['id'] ?>" method="POST" style="display: inline;" 
-                                      onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette filière ?\nATTENTION : Tous les modules liés seront également supprimés !');">
+                                      onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette filière ?');">
                                     <button type="submit" class="btn btn-sm btn-danger" title="Supprimer">
                                         <i class="fas fa-trash"></i> Supprimer
                                     </button>
                                 </form>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

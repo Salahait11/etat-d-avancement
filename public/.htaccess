@@ -1,7 +1,10 @@
 RewriteEngine On
+RewriteBase /etat-d-avancement/public/
 
+# Si le fichier ou le répertoire existe, servir directement
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
+# Sinon, rediriger vers index.php
 RewriteRule ^ index.php [L]

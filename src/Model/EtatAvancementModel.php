@@ -775,15 +775,25 @@ class EtatAvancementModel
      */
     private function insertMoyens(int $etatId, array $moyens): void
     {
+        error_log("=== DÉBUT INSERTION MOYENS ===");
+        error_log("État ID : " . $etatId);
+        error_log("Moyens à insérer : " . print_r($moyens, true));
+
         $sql = "INSERT INTO etat_avancement_moyen (id_etat_avancement, id_moyen_didactique, statut)
                 VALUES (:etat_id, :moyen_id, :statut)";
 
         try {
             foreach ($moyens as $moyen) {
+                error_log("Traitement du moyen : " . print_r($moyen, true));
+
                 if (!isset($moyen['id']) || !isset($moyen['statut'])) {
+                    error_log("Format de moyen invalide - ID ou statut manquant");
                     throw new \InvalidArgumentException("Format de moyen lié invalide. Attendu ['id' => int, 'statut' => string].");
                 }
+
                 if (!in_array($moyen['statut'], ['utilise', 'non_utilise'])) {
+                    error_log("Statut invalide : " . $moyen['statut']);
+                    error_log("Statuts valides : utilise, non_utilise");
                     throw new \InvalidArgumentException("Statut de moyen lié invalide: " . $moyen['statut']);
                 }
 
@@ -793,14 +803,19 @@ class EtatAvancementModel
                     ':statut' => $moyen['statut']
                 ];
 
+                error_log("Paramètres de la requête : " . print_r($params, true));
+
                 $stmt = $this->db->query($sql, $params);
                 if (!$stmt) {
                     $errorInfo = $stmt->errorInfo();
                     error_log("Erreur PDO lors de l'insertion d'un moyen lié (Etat ID: {$etatId}, Moyen ID: {$moyen['id']}): " . ($errorInfo[2] ?? 'Inconnu'));
                     throw new PDOException("Erreur lors de l'insertion des moyens liés.");
                 }
+                error_log("Moyen inséré avec succès");
             }
+            error_log("=== FIN INSERTION MOYENS ===");
         } catch (\Exception $e) {
+            error_log("Erreur lors de l'insertion des moyens : " . $e->getMessage());
             throw $e;
         }
     }

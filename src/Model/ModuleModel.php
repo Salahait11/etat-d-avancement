@@ -222,4 +222,18 @@ class ModuleModel
         $stmt = $this->db->query($sql);
         return $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : [];
     }
+
+    /**
+     * Vérifie si un module est utilisé dans un état d'avancement
+     * 
+     * @param int $moduleId ID du module à vérifier
+     * @return bool True si le module est utilisé, false sinon
+     */
+    public function isUsedInEtatAvancement(int $moduleId): bool
+    {
+        $sql = "SELECT COUNT(*) as count FROM etat_avancement WHERE id_module = :module_id";
+        $stmt = $this->db->query($sql, [':module_id' => $moduleId]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['count'] > 0;
+    }
 }

@@ -6,6 +6,7 @@ namespace App\Model;
 
 use App\Core\Database;
 use PDO;
+use PDOException;
 
 class MoyenDidactiqueModel
 {
@@ -93,6 +94,27 @@ class MoyenDidactiqueModel
     }
 
     /**
+     * Vérifie si un moyen didactique est utilisé dans des états d'avancement
+     * @param int $moyenId ID du moyen didactique
+     * @return bool True si le moyen est utilisé, false sinon
+     */
+    public function isUsedInEtatsAvancement(int $moyenId): bool
+    {
+        try {
+            $sql = "SELECT COUNT(*) as count FROM etat_avancement_moyen WHERE id_moyen_didactique = :moyen_id";
+            $stmt = $this->db->query($sql, [':moyen_id' => $moyenId]);
+            if ($stmt) {
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $result['count'] > 0;
+            }
+            return false;
+        } catch (PDOException $e) {
+            error_log("Erreur lors de la vérification de l'utilisation du moyen didactique : " . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
      * Supprime un moyen didactique.
      *
      * @param int $id ID du moyen didactique à supprimer
@@ -100,17 +122,19 @@ class MoyenDidactiqueModel
      */
     public function delete(int $id): bool
     {
-        // Vérifier si le moyen didactique est utilisé dans etat_avancement_moyen
-        $checkSql = "SELECT COUNT(*) FROM etat_avancement_moyen WHERE id_moyen_didactique = :id";
-        $checkStmt = $this->db->query($checkSql, [':id' => $id]);
-        
-        if ($checkStmt && $checkStmt->fetchColumn() > 0) {
-            // Le moyen est utilisé, ne pas supprimer
+        try {
+            // Vérifier d'abord si le moyen est utilisé
+            if ($this->isUsedInEtatsAvancement($id)) {
+                error_log("Tentative de suppression d'un moyen didactique utilisé dans des états d'avancement : " . $id);
+                return false;
+            }
+
+            $sql = "DELETE FROM moyen_didactique WHERE id = :id";
+            $stmt = $this->db->query($sql, [':id' => $id]);
+            return $stmt !== false;
+        } catch (PDOException $e) {
+            error_log("Erreur lors de la suppression du moyen didactique : " . $e->getMessage());
             return false;
         }
-        
-        // Le moyen n'est pas utilisé, on peut le supprimer
-        $sql = "DELETE FROM moyen_didactique WHERE id = :id";
-        return $this->db->query($sql, [':id' => $id]) ? true : false;
     }
 }

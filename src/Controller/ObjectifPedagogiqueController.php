@@ -37,11 +37,15 @@ class ObjectifPedagogiqueController extends BaseController
     public function index(): void
     {
         $this->requireAdmin();
-        
         $objectifs = $this->objectifModel->findAll();
         
+        // Ajouter l'information is_used pour chaque objectif
+        foreach ($objectifs as &$objectif) {
+            $objectif['is_used'] = $this->objectifModel->isUsedInEtatsAvancement((int)$objectif['id']);
+        }
+        
         $this->render('objectif_pedagogique/list', [
-            'title' => 'Objectifs Pédagogiques',
+            'title' => 'Liste des Objectifs Pédagogiques',
             'objectifs' => $objectifs
         ]);
     }

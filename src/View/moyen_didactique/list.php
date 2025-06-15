@@ -49,15 +49,19 @@
                                             <span class="text-muted fst-italic">Aucune description</span>
                                         <?php endif; ?>
                                     </td>
-                                    <td>
-                                        <div class="btn-group" role="group">
-                                            <a href="<?= BASE_URL ?>/moyens-didactiques/edit/<?= $moyen['id'] ?>" class="btn btn-sm btn-outline-primary" title="Modifier">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#genericDeleteModal" data-url="<?= BASE_URL ?>/moyens-didactiques/delete/<?= $moyen['id'] ?>" data-item="<?= htmlspecialchars($moyen['moyen']) ?>" title="Supprimer">
-                                                <i class="fas fa-trash"></i>
+                                    <td class="actions">
+                                        <a href="<?= BASE_URL ?>/moyens-didactiques/edit/<?= $moyen['id'] ?>" class="btn btn-sm btn-warning" title="Modifier">
+                                            <i class="fas fa-edit"></i> Modifier
+                                        </a>
+                                        
+                                        <?php if (!isset($moyen['is_used']) || !$moyen['is_used']): ?>
+                                        <form action="<?= BASE_URL ?>/moyens-didactiques/delete/<?= $moyen['id'] ?>" method="POST" style="display: inline;" 
+                                              onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce moyen didactique ?');">
+                                            <button type="submit" class="btn btn-sm btn-danger" title="Supprimer">
+                                                <i class="fas fa-trash"></i> Supprimer
                                             </button>
-                                        </div>
+                                        </form>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

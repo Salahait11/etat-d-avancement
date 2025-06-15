@@ -34,18 +34,19 @@
                             <td><?= htmlspecialchars($f['nom']) ?></td>
                             <td><?= htmlspecialchars($f['email']) ?></td>
                             <td><?= htmlspecialchars($f['specialite']) ?></td>
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <a href="<?= BASE_URL ?>/formateurs/edit/<?= $f['id'] ?>" class="btn btn-sm btn-outline-primary" title="Modifier">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <button type="button" class="btn btn-sm btn-outline-danger btn-delete" 
-                                            data-bs-toggle="modal" data-bs-target="#genericDeleteModal" 
-                                            data-url="<?= BASE_URL ?>/formateurs/delete/<?= $f['id'] ?>" 
-                                            data-item="<?= htmlspecialchars($f['prenom'] . ' ' . $f['nom']) ?>">
-                                        <i class="fas fa-trash"></i>
+                            <td class="actions">
+                                <a href="<?= BASE_URL ?>/formateurs/edit/<?= $f['id'] ?>" class="btn btn-sm btn-warning" title="Modifier">
+                                    <i class="fas fa-edit"></i> Modifier
+                                </a>
+                                
+                                <?php if (!isset($f['is_used']) || !$f['is_used']): ?>
+                                <form action="<?= BASE_URL ?>/formateurs/delete/<?= $f['id'] ?>" method="POST" style="display: inline;" 
+                                      onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce formateur ?');">
+                                    <button type="submit" class="btn btn-sm btn-danger" title="Supprimer">
+                                        <i class="fas fa-trash"></i> Supprimer
                                     </button>
-                                </div>
+                                </form>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

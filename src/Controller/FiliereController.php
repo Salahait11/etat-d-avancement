@@ -37,9 +37,15 @@ class FiliereController extends BaseController
     {
         $this->requireAdmin();
         
+        // Récupérer les filières
         $filieres = $this->filiereModel->findAll();
         
-        $this->render('filiere/index', [
+        // Ajouter l'information is_used pour chaque filière
+        foreach ($filieres as &$filiere) {
+            $filiere['is_used'] = $this->filiereModel->isUsedInModules((int)$filiere['id']);
+        }
+        
+        $this->render('filiere/list', [
             'title' => 'Liste des Filières',
             'filieres' => $filieres
         ]);

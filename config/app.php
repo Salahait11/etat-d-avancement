@@ -9,7 +9,7 @@ declare(strict_types=1);
 // $baseUrl = 'http://localhost/gestion_ecoles_v2/public';
 
 // Option 2: Si tu as configuré un Virtual Host (ex: http://gecoles.test/) qui pointe vers le dossier /public
-$baseUrl = 'http://localhost/etat-d-avancement'; // Modifié pour correspondre au dossier réel
+$baseUrl = 'http://localhost/etat-d-avancement/public'; // URL complète incluant /public
 
 // Option 3: Essai de détection automatique (peut être moins fiable selon les serveurs)
 /*

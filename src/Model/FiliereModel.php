@@ -123,4 +123,18 @@ class FiliereModel
         
         return $stmt && (int)$stmt->fetchColumn() > 0;
     }
+
+    /**
+     * Vérifie si une filière est utilisée dans des modules
+     * 
+     * @param int $filiereId ID de la filière à vérifier
+     * @return bool True si la filière est utilisée, false sinon
+     */
+    public function isUsedInModules(int $filiereId): bool
+    {
+        $sql = "SELECT COUNT(*) as count FROM module WHERE id_filiere = :filiere_id";
+        $stmt = $this->db->query($sql, [':filiere_id' => $filiereId]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['count'] > 0;
+    }
 }

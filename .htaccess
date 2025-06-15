@@ -1,9 +1,12 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteBase /etat-d-avancement/
 
-    # Redirige la racine du projet vers public/
-    RewriteRule ^$ public/ [L]
+    # Si le fichier ou le répertoire existe, servir directement
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
 
-    # Tout le reste des requêtes vers public/
-    RewriteRule (.*) public/$1 [L]
+    # Rediriger tout vers public/index.php
+    RewriteRule ^(.*)$ public/index.php [L]
 </IfModule>

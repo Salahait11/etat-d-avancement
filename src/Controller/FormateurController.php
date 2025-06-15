@@ -21,6 +21,12 @@ class FormateurController extends BaseController
     {
         $this->requireAdmin();
         $formateurs = $this->model->findAll();
+        
+        // Ajouter l'information is_used pour chaque formateur
+        foreach ($formateurs as &$formateur) {
+            $formateur['is_used'] = $this->model->isUsedInEtatsAvancement((int)$formateur['id']);
+        }
+        
         $this->render('formateur/list', [
             'title' => 'Gestion des Formateurs',
             'formateurs' => $formateurs

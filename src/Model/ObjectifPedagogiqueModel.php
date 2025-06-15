@@ -6,6 +6,7 @@ namespace App\Model;
 
 use App\Core\Database;
 use PDO;
+use PDOException;
 
 class ObjectifPedagogiqueModel
 {
@@ -100,17 +101,40 @@ class ObjectifPedagogiqueModel
      */
     public function delete(int $id): bool
     {
-        // Vérifier si l'objectif pédagogique est utilisé dans etat_avancement_objectif
-        $checkSql = "SELECT COUNT(*) FROM etat_avancement_objectif WHERE id_objectif_pedagogique = :id";
-        $checkStmt = $this->db->query($checkSql, [':id' => $id]);
-        
-        if ($checkStmt && $checkStmt->fetchColumn() > 0) {
-            // L'objectif est utilisé, ne pas supprimer
+        try {
+            // Vérifier d'abord si l'objectif est utilisé
+            if ($this->isUsedInEtatsAvancement($id)) {
+                error_log("Tentative de suppression d'un objectif pédagogique utilisé dans des états d'avancement : " . $id);
+                return false;
+            }
+
+            $sql = "DELETE FROM objectif_pedagogique WHERE id = :id";
+            $stmt = $this->db->query($sql, [':id' => $id]);
+            return $stmt !== false;
+        } catch (PDOException $e) {
+            error_log("Erreur lors de la suppression de l'objectif pédagogique : " . $e->getMessage());
             return false;
         }
-        
-        // L'objectif n'est pas utilisé, on peut le supprimer
-        $sql = "DELETE FROM objectif_pedagogique WHERE id = :id";
-        return $this->db->query($sql, [':id' => $id]) ? true : false;
+    }
+
+    /**
+     * Vérifie si un objectif pédagogique est utilisé dans des états d'avancement
+     * @param int $objectifId ID de l'objectif pédagogique
+     * @return bool True si l'objectif est utilisé, false sinon
+     */
+    public function isUsedInEtatsAvancement(int $objectifId): bool
+    {
+        try {
+            $sql = "SELECT COUNT(*) as count FROM etat_avancement_objectif WHERE id_objectif_pedagogique = :objectif_id";
+            $stmt = $this->db->query($sql, [':objectif_id' => $objectifId]);
+            if ($stmt) {
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $result['count'] > 0;
+            }
+            return false;
+        } catch (PDOException $e) {
+            error_log("Erreur lors de la vérification de l'utilisation de l'objectif pédagogique : " . $e->getMessage());
+            return false;
+        }
     }
 }

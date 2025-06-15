@@ -55,12 +55,14 @@
                                     <i class="fas fa-edit"></i> Modifier
                                 </a>
                                 
+                                <?php if (!isset($module['is_used']) || !$module['is_used']): ?>
                                 <form action="<?= BASE_URL ?>/modules/delete/<?= $module['id'] ?>" method="POST" style="display: inline;" 
                                       onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce module ?');">
                                     <button type="submit" class="btn btn-sm btn-danger" title="Supprimer">
                                         <i class="fas fa-trash"></i> Supprimer
                                     </button>
                                 </form>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -49,18 +49,19 @@
                                             <span class="text-muted fst-italic">Aucune description</span>
                                         <?php endif; ?>
                                     </td>
-                                    <td>
-                                        <div class="btn-group" role="group">
-                                            <a href="<?= BASE_URL ?>/objectifs-pedagogiques/edit/<?= $objectif['id'] ?>" class="btn btn-sm btn-outline-primary" title="Modifier">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
-                                            <form action="<?= BASE_URL ?>/objectifs-pedagogiques/delete/<?= $objectif['id'] ?>" method="POST" style="display: inline;" 
-                                                  onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet objectif pédagogique ?');">
-                                                <button type="submit" class="btn btn-sm btn-outline-danger" title="Supprimer">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
+                                    <td class="actions">
+                                        <a href="<?= BASE_URL ?>/objectifs-pedagogiques/edit/<?= $objectif['id'] ?>" class="btn btn-sm btn-warning" title="Modifier">
+                                            <i class="fas fa-edit"></i> Modifier
+                                        </a>
+                                        
+                                        <?php if (!isset($objectif['is_used']) || !$objectif['is_used']): ?>
+                                        <form action="<?= BASE_URL ?>/objectifs-pedagogiques/delete/<?= $objectif['id'] ?>" method="POST" style="display: inline;" 
+                                              onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet objectif pédagogique ?');">
+                                            <button type="submit" class="btn btn-sm btn-danger" title="Supprimer">
+                                                <i class="fas fa-trash"></i> Supprimer
+                                            </button>
+                                        </form>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

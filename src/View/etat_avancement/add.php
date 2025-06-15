@@ -162,8 +162,10 @@ $title = 'Ajouter un État d\'Avancement';
                                     <h6 class="mb-1"><?= htmlspecialchars($objectif['objectif']) ?></h6>
                                 </div>
                                 <select class="form-select form-select-sm w-auto" name="objectifs[<?= $objectif['id'] ?>]">
-                                    <option value="">Non réalisé</option>
-                                    <option value="partiel">Partiellement réalisé</option>
+                                    <option value="">Non atteint</option>
+                                    <option value="non_atteint">Non atteint</option>
+                                    <option value="en_cours">En cours</option>
+                                    <option value="atteint">Atteint</option>
                                     <option value="realise">Réalisé</option>
                                 </select>
                             </div>
@@ -205,7 +207,7 @@ $title = 'Ajouter un État d\'Avancement';
                                 </div>
                                 <select class="form-select form-select-sm w-auto" name="moyens[<?= $moyen['id'] ?>]">
                                     <option value="">Non utilisé</option>
-                                    <option value="partiel">Partiellement utilisé</option>
+                                    <option value="non_utilise">Non utilisé</option>
                                     <option value="utilise">Utilisé</option>
                                 </select>
                             </div>
@@ -227,9 +229,9 @@ $title = 'Ajouter un État d\'Avancement';
                                     <h6 class="mb-1"><?= htmlspecialchars($strategie['strategie']) ?></h6>
                                 </div>
                                 <select class="form-select form-select-sm w-auto" name="strategies[<?= $strategie['id'] ?>]">
-                                    <option value="">Non utilisée</option>
-                                    <option value="partiel">Partiellement utilisée</option>
-                                    <option value="utilise">Utilisée</option>
+                                    <option value="">Non appliquée</option>
+                                    <option value="non_appliquee">Non appliquée</option>
+                                    <option value="appliquee">Appliquée</option>
                                 </select>
                             </div>
                         </div>

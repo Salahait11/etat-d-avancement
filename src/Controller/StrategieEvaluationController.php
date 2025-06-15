@@ -38,11 +38,15 @@ class StrategieEvaluationController extends BaseController
     public function index(): void
     {
         $this->requireAdmin();
-        
         $strategies = $this->strategieModel->findAll();
         
+        // Ajouter l'information is_used pour chaque stratégie
+        foreach ($strategies as &$strategie) {
+            $strategie['is_used'] = $this->strategieModel->isUsedInEtatsAvancement((int)$strategie['id']);
+        }
+        
         $this->render('strategie_evaluation/list', [
-            'title' => 'Stratégies d\'Évaluation',
+            'title' => 'Liste des Stratégies d\'Évaluation',
             'strategies' => $strategies
         ]);
     }

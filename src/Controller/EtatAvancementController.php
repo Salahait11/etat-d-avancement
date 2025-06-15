@@ -263,13 +263,18 @@ class EtatAvancementController extends BaseController
     {
         $this->requireFormateur();
         
+        error_log("=== DÉBUT DU TRAITEMENT STORE ===");
+        error_log("Données POST reçues : " . print_r($_POST, true));
+        
         // Vérifier si l'utilisateur est connecté
         if (!isset($_SESSION['user'])) {
+            error_log("Utilisateur non connecté");
             $this->redirect('/login');
         }
 
         // Vérifier si c'est une requête POST
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            error_log("Méthode non POST : " . $_SERVER['REQUEST_METHOD']);
             $this->redirect('/etats-avancement');
         }
 
@@ -292,6 +297,8 @@ class EtatAvancementController extends BaseController
             'strategies' => []
         ];
 
+        error_log("Données formatées : " . print_r($data, true));
+
         // Formater les objectifs
         if (isset($_POST['objectifs']) && is_array($_POST['objectifs'])) {
             foreach ($_POST['objectifs'] as $id => $statut) {
@@ -303,6 +310,7 @@ class EtatAvancementController extends BaseController
                 }
             }
         }
+        error_log("Objectifs formatés : " . print_r($data['objectifs'], true));
 
         // Formater les moyens
         if (isset($_POST['moyens']) && is_array($_POST['moyens'])) {
@@ -315,6 +323,7 @@ class EtatAvancementController extends BaseController
                 }
             }
         }
+        error_log("Moyens formatés : " . print_r($data['moyens'], true));
 
         // Formater les stratégies
         if (isset($_POST['strategies']) && is_array($_POST['strategies'])) {
@@ -327,12 +336,14 @@ class EtatAvancementController extends BaseController
                 }
             }
         }
+        error_log("Stratégies formatées : " . print_r($data['strategies'], true));
 
         // Valider les données
         $errors = $this->validateEtatData($data);
+        error_log("Erreurs de validation : " . print_r($errors, true));
 
         if (!empty($errors)) {
-            // En cas d'erreur, rediriger vers le formulaire avec les erreurs
+            error_log("Erreurs de validation détectées, redirection vers le formulaire");
             $_SESSION['form_errors'] = $errors;
             $_SESSION['form_data'] = $data;
             $this->redirect('/etats-avancement/add');
@@ -340,16 +351,20 @@ class EtatAvancementController extends BaseController
         }
 
         // Créer l'état d'avancement
+        error_log("Tentative de création de l'état d'avancement");
         $etatId = $this->etatModel->create($data);
 
         if ($etatId) {
+            error_log("État d'avancement créé avec succès, ID : " . $etatId);
             $_SESSION['flash_messages']['success'][] = 'État d\'avancement créé avec succès.';
             $this->redirect('/etats-avancement/view/' . $etatId);
         } else {
+            error_log("Échec de la création de l'état d'avancement");
             $_SESSION['flash_messages']['error'][] = 'Erreur lors de la création de l\'état d\'avancement.';
             $_SESSION['form_data'] = $data;
             $this->redirect('/etats-avancement/add');
         }
+        error_log("=== FIN DU TRAITEMENT STORE ===");
     }
 
     /**

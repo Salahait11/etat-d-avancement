@@ -1,17 +1,43 @@
 <?php // public/index.php
 
-
 declare(strict_types=1);
+
+// Configuration des erreurs
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Configuration du logging
+ini_set('log_errors', 1);
+ini_set('error_log', __DIR__ . '/../logs/php-error.log');
 
 // --- Chargement Initial ---
 // Autoloader Composer (pour charger les classes App\...)
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// Configuration de l'application (définit BASE_URL, APP_ENV)
-$appConfig = require_once __DIR__ . '/../config/app.php'; // Assurez-vous que BASE_URL est correctement définie dans ce fichier !
+// Vérification de l'existence des fichiers de configuration
+$configPath = __DIR__ . '/../config/app.php';
+$dbConfigPath = __DIR__ . '/../config/database.php';
 
-define('BASE_PATH', dirname(__DIR__)); // Définit le chemin racine du projet (gestion_ecoles_v2/)
+if (!file_exists($configPath)) {
+    die('Erreur : Le fichier de configuration app.php est manquant.');
+}
+
+if (!file_exists($dbConfigPath)) {
+    die('Erreur : Le fichier de configuration database.php est manquant.');
+}
+
+// Configuration de l'application (définit BASE_URL, APP_ENV)
+$appConfig = require_once $configPath;
+
+// Vérification de la configuration
+if (!defined('BASE_URL')) {
+    die('Erreur : BASE_URL n\'est pas définie dans la configuration.');
+}
+
+define('BASE_PATH', dirname(__DIR__)); // Définit le chemin racine du projet
 define('VIEW_PATH', BASE_PATH . '/src/View/');
+
 // --- Démarrer la Session ---
 // Doit être démarrée avant toute sortie ou accès à $_SESSION
 if (session_status() === PHP_SESSION_NONE) {
@@ -54,15 +80,6 @@ $route = ($route === '/') ? '/' : rtrim($route, '/');
 
 // --- Nouveau Routage avec FastRoute ---
 use FastRoute\RouteCollector;
-
-// Afficher toutes les erreurs
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-// Configurer le logging
-ini_set('log_errors', 1);
-ini_set('error_log', __DIR__ . '/../logs/php-error.log');
 
 // Log de débogage
 error_log("=== DÉBUT DE LA REQUÊTE ===");

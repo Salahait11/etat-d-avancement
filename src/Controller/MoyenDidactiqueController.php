@@ -38,11 +38,15 @@ class MoyenDidactiqueController extends BaseController
     public function index(): void
     {
         $this->requireAdmin();
-        
         $moyens = $this->moyenModel->findAll();
         
+        // Ajouter l'information is_used pour chaque moyen
+        foreach ($moyens as &$moyen) {
+            $moyen['is_used'] = $this->moyenModel->isUsedInEtatsAvancement((int)$moyen['id']);
+        }
+        
         $this->render('moyen_didactique/list', [
-            'title' => 'Moyens Didactiques',
+            'title' => 'Liste des Moyens Didactiques',
             'moyens' => $moyens
         ]);
     }

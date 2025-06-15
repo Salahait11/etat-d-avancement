@@ -1,925 +1,508 @@
-[20-May-2025 02:08:43 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:08:43 Europe/Berlin] URI demandée : /etat-d-avancement/profile/update
-[20-May-2025 02:08:43 Europe/Berlin] Méthode HTTP : POST
-[20-May-2025 02:08:43 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:08:43 Europe/Berlin] Route calculée : /profile/update
-[20-May-2025 02:08:43 Europe/Berlin] ProfileController::update - Début de la mise à jour pour l'utilisateur ID: 3
-[20-May-2025 02:08:43 Europe/Berlin] ProfileController::update - Données de base: {"id":3,"nom":"Admin","prenom":"System","email":"admin@system.com"}
-[20-May-2025 02:08:43 Europe/Berlin] ProfileController::update - Tentative de mise à jour du mot de passe
-[20-May-2025 02:08:43 Europe/Berlin] ProfileController::update - Mot de passe validé et ajouté aux données
-[20-May-2025 02:08:43 Europe/Berlin] ProfileController::validateProfileData - Début de la validation des données: {"id":3,"nom":"Admin","prenom":"System","email":"admin@system.com","mot_de_passe":"123456"}
-[20-May-2025 02:08:43 Europe/Berlin] ProfileController::validateProfileData - Fin de la validation. Erreurs trouvées: []
-[20-May-2025 02:08:43 Europe/Berlin] ProfileController::update - Mise à jour réussie pour l'utilisateur ID: 3
-[20-May-2025 02:08:43 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:08:43 Europe/Berlin] URI demandée : /etat-d-avancement/profile
-[20-May-2025 02:08:43 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:08:43 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:08:43 Europe/Berlin] Route calculée : /profile
-[20-May-2025 02:08:50 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:08:50 Europe/Berlin] URI demandée : /etat-d-avancement/profile/edit
-[20-May-2025 02:08:50 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:08:50 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:08:50 Europe/Berlin] Route calculée : /profile/edit
-[20-May-2025 02:08:55 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:08:55 Europe/Berlin] URI demandée : /etat-d-avancement/profile/update
-[20-May-2025 02:08:55 Europe/Berlin] Méthode HTTP : POST
-[20-May-2025 02:08:55 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:08:55 Europe/Berlin] Route calculée : /profile/update
-[20-May-2025 02:08:55 Europe/Berlin] ProfileController::update - Début de la mise à jour pour l'utilisateur ID: 3
-[20-May-2025 02:08:55 Europe/Berlin] ProfileController::update - Données de base: {"id":3,"nom":"Salah","prenom":"System","email":"admin@system.com"}
-[20-May-2025 02:08:55 Europe/Berlin] ProfileController::validateProfileData - Début de la validation des données: {"id":3,"nom":"Salah","prenom":"System","email":"admin@system.com"}
-[20-May-2025 02:08:55 Europe/Berlin] ProfileController::validateProfileData - Fin de la validation. Erreurs trouvées: []
-[20-May-2025 02:08:55 Europe/Berlin] ProfileController::update - Mise à jour réussie pour l'utilisateur ID: 3
-[20-May-2025 02:08:55 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:08:55 Europe/Berlin] URI demandée : /etat-d-avancement/profile
-[20-May-2025 02:08:55 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:08:55 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:08:55 Europe/Berlin] Route calculée : /profile
-[20-May-2025 02:09:00 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:09:00 Europe/Berlin] URI demandée : /etat-d-avancement/logout
-[20-May-2025 02:09:00 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:09:00 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:09:00 Europe/Berlin] Route calculée : /logout
-[20-May-2025 02:09:00 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:09:00 Europe/Berlin] URI demandée : /etat-d-avancement/login
-[20-May-2025 02:09:00 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:09:00 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:09:00 Europe/Berlin] Route calculée : /login
-[20-May-2025 02:09:01 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:09:01 Europe/Berlin] URI demandée : /etat-d-avancement/login
-[20-May-2025 02:09:01 Europe/Berlin] Méthode HTTP : POST
-[20-May-2025 02:09:01 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:09:01 Europe/Berlin] Route calculée : /login
-[20-May-2025 02:09:02 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:09:02 Europe/Berlin] URI demandée : /etat-d-avancement/login
-[20-May-2025 02:09:02 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:09:02 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:09:02 Europe/Berlin] Route calculée : /login
-[20-May-2025 02:09:06 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:09:06 Europe/Berlin] URI demandée : /etat-d-avancement/login
-[20-May-2025 02:09:06 Europe/Berlin] Méthode HTTP : POST
-[20-May-2025 02:09:06 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:09:06 Europe/Berlin] Route calculée : /login
-[20-May-2025 02:09:07 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:09:07 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
-[20-May-2025 02:09:07 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:09:07 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:09:07 Europe/Berlin] Route calculée : /dashboard
-[20-May-2025 02:09:07 Europe/Berlin] PHP Warning:  Undefined array key "date_seance" in C:\xampp\htdocs\etat-d-avancement\src\View\dashboard\index.php on line 74
-[20-May-2025 02:09:07 Europe/Berlin] PHP Deprecated:  DateTime::__construct(): Passing null to parameter #1 ($datetime) of type string is deprecated in C:\xampp\htdocs\etat-d-avancement\src\View\dashboard\index.php on line 74
-[20-May-2025 02:12:12 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:12:12 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
-[20-May-2025 02:12:12 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:12:12 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:12:12 Europe/Berlin] Route calculée : /dashboard
-[20-May-2025 02:12:25 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:12:25 Europe/Berlin] URI demandée : /etat-d-avancement/etats-avancement/edit/10
-[20-May-2025 02:12:25 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:12:25 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:12:25 Europe/Berlin] Route calculée : /etats-avancement/edit/10
-[20-May-2025 02:12:25 Europe/Berlin] Vérification du formateur
-[20-May-2025 02:12:25 Europe/Berlin] Session utilisateur : Array
+[15-Jun-2025 18:38:03 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:38:03 Europe/Berlin] URI demandée : /etat-d-avancement/public/modules
+[15-Jun-2025 18:38:03 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:38:03 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:38:03 Europe/Berlin] Route calculée : /modules
+[15-Jun-2025 18:38:03 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:38:03 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:38:03 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:38:03 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:38:03 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:38:03 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:38:03 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:38:03 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:38:03 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:38:03 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:38:03 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:38:03 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:38:03 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:38:03 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:38:03 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:38:03 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:38:06 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:38:06 Europe/Berlin] URI demandée : /etat-d-avancement/public/filieres
+[15-Jun-2025 18:38:06 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:38:06 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:38:06 Europe/Berlin] Route calculée : /filieres
+[15-Jun-2025 18:38:06 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:38:06 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:38:06 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:38:06 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:38:06 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:38:06 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:38:06 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:38:06 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:38:06 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:38:06 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:38:06 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:38:06 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:38:06 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:38:06 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:38:06 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:38:06 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:38:56 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:38:56 Europe/Berlin] URI demandée : /etat-d-avancement/public/filieres
+[15-Jun-2025 18:38:56 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:38:56 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:38:56 Europe/Berlin] Route calculée : /filieres
+[15-Jun-2025 18:38:56 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:38:56 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:38:56 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:38:56 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:38:56 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:38:56 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:38:56 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:38:56 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:38:56 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:38:56 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:38:56 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:38:56 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:38:56 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:38:56 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:38:56 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:38:56 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:39:03 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:03 Europe/Berlin] URI demandée : /etat-d-avancement/public/filieres/edit/2
+[15-Jun-2025 18:39:03 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:03 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:03 Europe/Berlin] Route calculée : /filieres/edit/2
+[15-Jun-2025 18:39:03 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:39:03 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:03 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:39:03 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:03 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:03 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:39:03 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:03 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:39:03 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:03 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:03 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:39:03 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:03 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:39:03 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:03 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:03 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:39:05 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:05 Europe/Berlin] URI demandée : /etat-d-avancement/public/formateurs
+[15-Jun-2025 18:39:05 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:05 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:05 Europe/Berlin] Route calculée : /formateurs
+[15-Jun-2025 18:39:05 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:39:05 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:05 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:39:05 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:05 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:05 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:39:05 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:05 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:39:05 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:05 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:05 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:39:05 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:05 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:39:05 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:05 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:05 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:39:34 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:34 Europe/Berlin] URI demandée : /etat-d-avancement/public/formateurs
+[15-Jun-2025 18:39:34 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:34 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:34 Europe/Berlin] Route calculée : /formateurs
+[15-Jun-2025 18:39:34 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:39:34 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:34 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:39:34 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:34 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:34 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:39:34 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:34 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:39:34 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:34 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:34 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:39:34 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:34 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:39:34 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:34 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:34 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:39:36 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:36 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:39:36 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:36 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:36 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:39:36 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:39:37 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:37 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:39:37 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:37 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:37 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:39:37 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:37 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:39:37 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:37 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:37 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:39:37 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:39:37 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:39:37 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:39:37 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:39:37 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:40:02 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:40:02 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:40:02 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:40:02 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:40:02 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:40:02 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:40:02 Europe/Berlin] Erreur PDO query : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_objectif' in 'where clause' | SQL : SELECT COUNT(*) as count FROM etat_avancement_objectif WHERE id_objectif = :objectif_id | Params : Array
 (
-    [id] => 3
-    [nom] => Salah
-    [prenom] => System
-    [email] => admin@system.com
-    [roles] => Array
-        (
-            [0] => admin
-        )
-
+    [:objectif_id] => 1
 )
 
-[20-May-2025 02:12:25 Europe/Berlin] Utilisateur autorisé
-[20-May-2025 02:12:25 Europe/Berlin] Recherche de l'état d'avancement avec l'ID : 10
-[20-May-2025 02:12:25 Europe/Berlin] Requête SQL : SELECT ea.*,
-                       m.intitule as module_intitule,
-                       CONCAT(u.prenom, ' ', u.nom) as formateur_nom
-                FROM etat_avancement ea
-                LEFT JOIN module m ON ea.id_module = m.id
-                LEFT JOIN formateur f ON ea.id_formateur = f.id
-                LEFT JOIN utilisateur u ON f.id_utilisateur = u.id
-                WHERE ea.id = :id
-[20-May-2025 02:12:25 Europe/Berlin] Paramètres : Array
+[15-Jun-2025 18:40:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on bool in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php:127
+Stack trace:
+#0 C:\xampp\htdocs\etat-d-avancement\src\Controller\ObjectifPedagogiqueController.php(44): App\Model\ObjectifPedagogiqueModel->isUsedInEtatsAvancement(1)
+#1 C:\xampp\htdocs\etat-d-avancement\public\index.php(162): App\Controller\ObjectifPedagogiqueController->index()
+#2 C:\xampp\htdocs\etat-d-avancement\public\index.php(341): {closure}(Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php on line 127
+[15-Jun-2025 18:40:04 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:40:04 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:40:04 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:40:04 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:40:04 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:40:04 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:40:04 Europe/Berlin] Erreur PDO query : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_objectif' in 'where clause' | SQL : SELECT COUNT(*) as count FROM etat_avancement_objectif WHERE id_objectif = :objectif_id | Params : Array
 (
-    [:id] => 10
+    [:objectif_id] => 1
 )
 
-[20-May-2025 02:12:25 Europe/Berlin] Résultat de la requête : Array
+[15-Jun-2025 18:40:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on bool in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php:127
+Stack trace:
+#0 C:\xampp\htdocs\etat-d-avancement\src\Controller\ObjectifPedagogiqueController.php(44): App\Model\ObjectifPedagogiqueModel->isUsedInEtatsAvancement(1)
+#1 C:\xampp\htdocs\etat-d-avancement\public\index.php(162): App\Controller\ObjectifPedagogiqueController->index()
+#2 C:\xampp\htdocs\etat-d-avancement\public\index.php(341): {closure}(Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php on line 127
+[15-Jun-2025 18:40:13 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:40:13 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:40:13 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:40:13 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:40:13 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:40:13 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:40:13 Europe/Berlin] Erreur PDO query : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_objectif' in 'where clause' | SQL : SELECT COUNT(*) as count FROM etat_avancement_objectif WHERE id_objectif = :objectif_id | Params : Array
 (
-    [id] => 10
-    [date] => 2025-05-21
-    [heure] => 2025-05-21 03:00:00
-    [nbr_heure_cumulee] => 2
-    [nbr_heure] => 2
-    [disposition] => 1
-    [commentaire] => sss
-    [contenu_seance] => test
-    [difficultes] => sss
-    [solutions] => www
-    [taux_realisation] => 50.00
-    [id_formateur] => 1
-    [id_module] => 2
-    [created_at] => 2025-05-19 23:04:46
-    [updated_at] => 2025-05-20 00:52:49
-    [module_intitule] => ssss
-    [formateur_nom] => Test Admin
+    [:objectif_id] => 1
 )
 
-[20-May-2025 02:12:25 Europe/Berlin] Heure formatée : 03:00
-[20-May-2025 02:12:31 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:12:31 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
-[20-May-2025 02:12:31 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:12:31 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:12:31 Europe/Berlin] Route calculée : /dashboard
-[20-May-2025 02:12:32 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:12:32 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
-[20-May-2025 02:12:32 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:12:32 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:12:32 Europe/Berlin] Route calculée : /dashboard
-[20-May-2025 02:12:44 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:12:44 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
-[20-May-2025 02:12:44 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:12:44 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:12:44 Europe/Berlin] Route calculée : /dashboard
-[20-May-2025 02:12:52 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:12:52 Europe/Berlin] URI demandée : /etat-d-avancement/etats-avancement/edit/10
-[20-May-2025 02:12:52 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:12:52 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:12:52 Europe/Berlin] Route calculée : /etats-avancement/edit/10
-[20-May-2025 02:12:52 Europe/Berlin] Vérification du formateur
-[20-May-2025 02:12:52 Europe/Berlin] Session utilisateur : Array
+[15-Jun-2025 18:40:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on bool in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php:127
+Stack trace:
+#0 C:\xampp\htdocs\etat-d-avancement\src\Controller\ObjectifPedagogiqueController.php(44): App\Model\ObjectifPedagogiqueModel->isUsedInEtatsAvancement(1)
+#1 C:\xampp\htdocs\etat-d-avancement\public\index.php(162): App\Controller\ObjectifPedagogiqueController->index()
+#2 C:\xampp\htdocs\etat-d-avancement\public\index.php(341): {closure}(Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php on line 127
+[15-Jun-2025 18:40:18 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:40:18 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:40:18 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:40:18 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:40:18 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:40:18 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:40:18 Europe/Berlin] Erreur PDO query : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_objectif' in 'where clause' | SQL : SELECT COUNT(*) as count FROM etat_avancement_objectif WHERE id_objectif = :objectif_id | Params : Array
 (
-    [id] => 3
-    [nom] => Salah
-    [prenom] => System
-    [email] => admin@system.com
-    [roles] => Array
-        (
-            [0] => admin
-        )
-
+    [:objectif_id] => 1
 )
 
-[20-May-2025 02:12:52 Europe/Berlin] Utilisateur autorisé
-[20-May-2025 02:12:52 Europe/Berlin] Recherche de l'état d'avancement avec l'ID : 10
-[20-May-2025 02:12:52 Europe/Berlin] Requête SQL : SELECT ea.*,
-                       m.intitule as module_intitule,
-                       CONCAT(u.prenom, ' ', u.nom) as formateur_nom
-                FROM etat_avancement ea
-                LEFT JOIN module m ON ea.id_module = m.id
-                LEFT JOIN formateur f ON ea.id_formateur = f.id
-                LEFT JOIN utilisateur u ON f.id_utilisateur = u.id
-                WHERE ea.id = :id
-[20-May-2025 02:12:52 Europe/Berlin] Paramètres : Array
+[15-Jun-2025 18:40:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch() on bool in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php:127
+Stack trace:
+#0 C:\xampp\htdocs\etat-d-avancement\src\Controller\ObjectifPedagogiqueController.php(44): App\Model\ObjectifPedagogiqueModel->isUsedInEtatsAvancement(1)
+#1 C:\xampp\htdocs\etat-d-avancement\public\index.php(162): App\Controller\ObjectifPedagogiqueController->index()
+#2 C:\xampp\htdocs\etat-d-avancement\public\index.php(341): {closure}(Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php on line 127
+[15-Jun-2025 18:40:32 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:40:32 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:40:32 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:40:32 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:40:32 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:40:32 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:40:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method App\Core\Database::prepare() in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php:127
+Stack trace:
+#0 C:\xampp\htdocs\etat-d-avancement\src\Controller\ObjectifPedagogiqueController.php(44): App\Model\ObjectifPedagogiqueModel->isUsedInEtatsAvancement(1)
+#1 C:\xampp\htdocs\etat-d-avancement\public\index.php(162): App\Controller\ObjectifPedagogiqueController->index()
+#2 C:\xampp\htdocs\etat-d-avancement\public\index.php(341): {closure}(Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php on line 127
+[15-Jun-2025 18:40:33 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:40:33 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:40:33 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:40:33 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:40:33 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:40:33 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:40:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method App\Core\Database::prepare() in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php:127
+Stack trace:
+#0 C:\xampp\htdocs\etat-d-avancement\src\Controller\ObjectifPedagogiqueController.php(44): App\Model\ObjectifPedagogiqueModel->isUsedInEtatsAvancement(1)
+#1 C:\xampp\htdocs\etat-d-avancement\public\index.php(162): App\Controller\ObjectifPedagogiqueController->index()
+#2 C:\xampp\htdocs\etat-d-avancement\public\index.php(341): {closure}(Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php on line 127
+[15-Jun-2025 18:40:40 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:40:40 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:40:40 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:40:40 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:40:40 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:40:40 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:40:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method App\Core\Database::prepare() in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php:127
+Stack trace:
+#0 C:\xampp\htdocs\etat-d-avancement\src\Controller\ObjectifPedagogiqueController.php(44): App\Model\ObjectifPedagogiqueModel->isUsedInEtatsAvancement(1)
+#1 C:\xampp\htdocs\etat-d-avancement\public\index.php(162): App\Controller\ObjectifPedagogiqueController->index()
+#2 C:\xampp\htdocs\etat-d-avancement\public\index.php(341): {closure}(Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php on line 127
+[15-Jun-2025 18:41:21 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:41:21 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:41:21 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:41:21 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:41:21 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:41:21 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:41:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method App\Core\Database::prepare() in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php:127
+Stack trace:
+#0 C:\xampp\htdocs\etat-d-avancement\src\Controller\ObjectifPedagogiqueController.php(44): App\Model\ObjectifPedagogiqueModel->isUsedInEtatsAvancement(1)
+#1 C:\xampp\htdocs\etat-d-avancement\public\index.php(162): App\Controller\ObjectifPedagogiqueController->index()
+#2 C:\xampp\htdocs\etat-d-avancement\public\index.php(341): {closure}(Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\etat-d-avancement\src\Model\ObjectifPedagogiqueModel.php on line 127
+[15-Jun-2025 18:41:51 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:41:51 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:41:51 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:41:51 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:41:51 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:41:51 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:41:51 Europe/Berlin] Erreur PDO query : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_objectif' in 'where clause' | SQL : SELECT COUNT(*) as count FROM etat_avancement_objectif WHERE id_objectif = :objectif_id | Params : Array
 (
-    [:id] => 10
+    [:objectif_id] => 1
 )
 
-[20-May-2025 02:12:52 Europe/Berlin] Résultat de la requête : Array
+[15-Jun-2025 18:41:51 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:41:51 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:41:51 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:41:51 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:41:51 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:41:51 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:41:51 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:41:51 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:41:51 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:41:51 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:41:51 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:41:51 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:41:51 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:41:51 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:41:51 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:41:56 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:41:56 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques/delete/1
+[15-Jun-2025 18:41:56 Europe/Berlin] Méthode HTTP : POST
+[15-Jun-2025 18:41:56 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:41:56 Europe/Berlin] Route calculée : /objectifs-pedagogiques/delete/1
+[15-Jun-2025 18:41:56 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:41:56 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: App\Controller\ObjectifPedagogiqueController::delete(): Argument #1 ($id) must be of type int, string given, called in C:\xampp\htdocs\etat-d-avancement\public\index.php on line 177 and defined in C:\xampp\htdocs\etat-d-avancement\src\Controller\ObjectifPedagogiqueController.php:204
+Stack trace:
+#0 C:\xampp\htdocs\etat-d-avancement\public\index.php(177): App\Controller\ObjectifPedagogiqueController->delete('1')
+#1 C:\xampp\htdocs\etat-d-avancement\public\index.php(341): {closure}(Array)
+#2 {main}
+  thrown in C:\xampp\htdocs\etat-d-avancement\src\Controller\ObjectifPedagogiqueController.php on line 204
+[15-Jun-2025 18:42:00 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:00 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:42:00 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:00 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:00 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:42:00 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:42:00 Europe/Berlin] Erreur PDO query : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_objectif' in 'where clause' | SQL : SELECT COUNT(*) as count FROM etat_avancement_objectif WHERE id_objectif = :objectif_id | Params : Array
 (
-    [id] => 10
-    [date] => 2025-05-21
-    [heure] => 2025-05-21 03:00:00
-    [nbr_heure_cumulee] => 2
-    [nbr_heure] => 2
-    [disposition] => 1
-    [commentaire] => sss
-    [contenu_seance] => test
-    [difficultes] => sss
-    [solutions] => www
-    [taux_realisation] => 50.00
-    [id_formateur] => 1
-    [id_module] => 2
-    [created_at] => 2025-05-19 23:04:46
-    [updated_at] => 2025-05-20 00:52:49
-    [module_intitule] => ssss
-    [formateur_nom] => Test Admin
+    [:objectif_id] => 1
 )
 
-[20-May-2025 02:12:52 Europe/Berlin] Heure formatée : 03:00
-[20-May-2025 02:12:55 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:12:55 Europe/Berlin] URI demandée : /etat-d-avancement/profile
-[20-May-2025 02:12:55 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:12:55 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:12:55 Europe/Berlin] Route calculée : /profile
-[20-May-2025 02:12:57 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:12:57 Europe/Berlin] URI demandée : /etat-d-avancement/modules
-[20-May-2025 02:12:57 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:12:57 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:12:57 Europe/Berlin] Route calculée : /modules
-[20-May-2025 02:12:59 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:12:59 Europe/Berlin] URI demandée : /etat-d-avancement/filieres
-[20-May-2025 02:12:59 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:12:59 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:12:59 Europe/Berlin] Route calculée : /filieres
-[20-May-2025 02:13:00 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:13:00 Europe/Berlin] URI demandée : /etat-d-avancement/formateurs
-[20-May-2025 02:13:00 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:13:00 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:13:00 Europe/Berlin] Route calculée : /formateurs
-[20-May-2025 02:13:02 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:13:02 Europe/Berlin] URI demandée : /etat-d-avancement/etats-avancement
-[20-May-2025 02:13:02 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:13:02 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:13:02 Europe/Berlin] Route calculée : /etats-avancement
-[20-May-2025 02:13:02 Europe/Berlin] Vérification du formateur
-[20-May-2025 02:13:02 Europe/Berlin] Session utilisateur : Array
+[15-Jun-2025 18:42:00 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:00 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:42:00 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:00 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:00 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:42:00 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:00 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:42:00 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:00 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:00 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:42:00 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:00 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:42:00 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:00 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:00 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:42:01 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:01 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:42:01 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:01 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:01 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:42:01 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:42:01 Europe/Berlin] Erreur PDO query : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id_objectif' in 'where clause' | SQL : SELECT COUNT(*) as count FROM etat_avancement_objectif WHERE id_objectif = :objectif_id | Params : Array
 (
-    [id] => 3
-    [nom] => Salah
-    [prenom] => System
-    [email] => admin@system.com
-    [roles] => Array
-        (
-            [0] => admin
-        )
-
+    [:objectif_id] => 1
 )
 
-[20-May-2025 02:13:02 Europe/Berlin] Utilisateur autorisé
-[20-May-2025 02:13:06 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:13:06 Europe/Berlin] URI demandée : /etat-d-avancement/etats-avancement/view/10
-[20-May-2025 02:13:06 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:13:06 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:13:06 Europe/Berlin] Route calculée : /etats-avancement/view/10
-[20-May-2025 02:13:06 Europe/Berlin] Début de la méthode view pour l'ID : 10
-[20-May-2025 02:13:06 Europe/Berlin] Recherche de l'état d'avancement avec l'ID : 10
-[20-May-2025 02:13:06 Europe/Berlin] Requête SQL : SELECT ea.*,
-                       m.intitule as module_intitule,
-                       CONCAT(u.prenom, ' ', u.nom) as formateur_nom
-                FROM etat_avancement ea
-                LEFT JOIN module m ON ea.id_module = m.id
-                LEFT JOIN formateur f ON ea.id_formateur = f.id
-                LEFT JOIN utilisateur u ON f.id_utilisateur = u.id
-                WHERE ea.id = :id
-[20-May-2025 02:13:06 Europe/Berlin] Paramètres : Array
-(
-    [:id] => 10
-)
-
-[20-May-2025 02:13:06 Europe/Berlin] Résultat de la requête : Array
-(
-    [id] => 10
-    [date] => 2025-05-21
-    [heure] => 2025-05-21 03:00:00
-    [nbr_heure_cumulee] => 2
-    [nbr_heure] => 2
-    [disposition] => 1
-    [commentaire] => sss
-    [contenu_seance] => test
-    [difficultes] => sss
-    [solutions] => www
-    [taux_realisation] => 50.00
-    [id_formateur] => 1
-    [id_module] => 2
-    [created_at] => 2025-05-19 23:04:46
-    [updated_at] => 2025-05-20 00:52:49
-    [module_intitule] => ssss
-    [formateur_nom] => Test Admin
-)
-
-[20-May-2025 02:13:06 Europe/Berlin] Heure formatée : 03:00
-[20-May-2025 02:13:06 Europe/Berlin] État d'avancement récupéré : Array
-(
-    [id] => 10
-    [date] => 2025-05-21
-    [heure] => 03:00
-    [nbr_heure_cumulee] => 2
-    [nbr_heure] => 2
-    [disposition] => 1
-    [commentaire] => sss
-    [contenu_seance] => test
-    [difficultes] => sss
-    [solutions] => www
-    [taux_realisation] => 50.00
-    [id_formateur] => 1
-    [id_module] => 2
-    [created_at] => 2025-05-19 23:04:46
-    [updated_at] => 2025-05-20 00:52:49
-    [module_intitule] => ssss
-    [formateur_nom] => Test Admin
-)
-
-[20-May-2025 02:13:06 Europe/Berlin] Récupération des objectifs pour l'état d'avancement ID : 10
-[20-May-2025 02:13:06 Europe/Berlin] Requête SQL pour les objectifs : SELECT op.id, op.objectif as libelle, eao.statut
-                FROM objectif_pedagogique op
-                LEFT JOIN etat_avancement_objectif eao ON op.id = eao.id_objectif_pedagogique 
-                    AND eao.id_etat_avancement = :etat_id
-                ORDER BY op.objectif
-[20-May-2025 02:13:06 Europe/Berlin] Paramètres : Array
-(
-    [:etat_id] => 10
-)
-
-[20-May-2025 02:13:06 Europe/Berlin] Objectifs récupérés : Array
-(
-    [0] => Array
-        (
-            [id] => 1
-            [libelle] => Objectif Pédagogique 1
-            [statut] => en_cours
-        )
-
-)
-
-[20-May-2025 02:13:06 Europe/Berlin] Récupération des moyens pour l'état d'avancement ID : 10
-[20-May-2025 02:13:06 Europe/Berlin] Requête SQL pour les moyens : SELECT md.id, md.moyen as libelle, eam.statut
-                FROM moyen_didactique md
-                LEFT JOIN etat_avancement_moyen eam ON md.id = eam.id_moyen_didactique 
-                    AND eam.id_etat_avancement = :etat_id
-                ORDER BY md.moyen
-[20-May-2025 02:13:06 Europe/Berlin] Paramètres : Array
-(
-    [:etat_id] => 10
-)
-
-[20-May-2025 02:13:06 Europe/Berlin] Moyens récupérés : Array
-(
-    [0] => Array
-        (
-            [id] => 1
-            [libelle] => Moyens Didactiques1
-            [statut] => non_utilise
-        )
-
-)
-
-[20-May-2025 02:13:06 Europe/Berlin] Récupération des stratégies pour l'état d'avancement ID : 10
-[20-May-2025 02:13:06 Europe/Berlin] Requête SQL pour les stratégies : SELECT se.id, se.strategie as libelle, eas.statut
-                FROM strategie_evaluation se
-                LEFT JOIN etat_avancement_strategie eas ON se.id = eas.id_strategie_evaluation 
-                    AND eas.id_etat_avancement = :etat_id
-                ORDER BY se.strategie
-[20-May-2025 02:13:06 Europe/Berlin] Paramètres : Array
-(
-    [:etat_id] => 10
-)
-
-[20-May-2025 02:13:06 Europe/Berlin] Stratégies récupérées : Array
-(
-    [0] => Array
-        (
-            [id] => 1
-            [libelle] => Stratégie d'Évaluation 1
-            [statut] => non_appliquee
-        )
-
-)
-
-[20-May-2025 02:13:06 Europe/Berlin] Objectifs récupérés : Array
-(
-    [0] => Array
-        (
-            [id] => 1
-            [libelle] => Objectif Pédagogique 1
-            [statut] => en_cours
-        )
-
-)
-
-[20-May-2025 02:13:06 Europe/Berlin] Moyens récupérés : Array
-(
-    [0] => Array
-        (
-            [id] => 1
-            [libelle] => Moyens Didactiques1
-            [statut] => non_utilise
-        )
-
-)
-
-[20-May-2025 02:13:06 Europe/Berlin] Stratégies récupérées : Array
-(
-    [0] => Array
-        (
-            [id] => 1
-            [libelle] => Stratégie d'Évaluation 1
-            [statut] => non_appliquee
-        )
-
-)
-
-[20-May-2025 02:13:06 Europe/Berlin] Données formatées pour la vue : Array
-(
-    [etat] => Array
-        (
-            [id] => 10
-            [module] => ssss
-            [formateur] => Test Admin
-            [date] => 21/05/2025
-            [heure] => 03:00
-            [nbr_heure] => 2
-            [nbr_heure_cumulee] => 2
-            [taux_realisation] => 50.00
-            [disposition] => Oui
-            [commentaire] => sss
-            [difficultes] => sss
-            [solutions] => www
-            [contenu_seance] => test
-            [id_formateur] => 1
-        )
-
-    [objectifs] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 1
-                    [libelle] => Objectif Pédagogique 1
-                    [statut] => En cours
-                )
-
-        )
-
-    [moyens] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 1
-                    [libelle] => Moyens Didactiques1
-                    [statut] => Non utilisé
-                )
-
-        )
-
-    [strategies] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 1
-                    [libelle] => Stratégie d'Évaluation 1
-                    [statut] => Non appliquée
-                )
-
-        )
-
-)
-
-[20-May-2025 02:13:10 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:13:10 Europe/Berlin] URI demandée : /etat-d-avancement/etats-avancement
-[20-May-2025 02:13:10 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:13:10 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:13:10 Europe/Berlin] Route calculée : /etats-avancement
-[20-May-2025 02:13:10 Europe/Berlin] Vérification du formateur
-[20-May-2025 02:13:10 Europe/Berlin] Session utilisateur : Array
-(
-    [id] => 3
-    [nom] => Salah
-    [prenom] => System
-    [email] => admin@system.com
-    [roles] => Array
-        (
-            [0] => admin
-        )
-
-)
-
-[20-May-2025 02:13:10 Europe/Berlin] Utilisateur autorisé
-[20-May-2025 02:13:11 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:13:11 Europe/Berlin] URI demandée : /etat-d-avancement/
-[20-May-2025 02:13:11 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:13:11 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:13:11 Europe/Berlin] Route calculée : /
-[20-May-2025 02:13:11 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:13:11 Europe/Berlin] URI demandée : /etat-d-avancement/
-[20-May-2025 02:13:11 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:13:11 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:13:11 Europe/Berlin] Route calculée : /
-[20-May-2025 02:13:13 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 02:13:13 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
-[20-May-2025 02:13:13 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 02:13:13 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 02:13:13 Europe/Berlin] Route calculée : /dashboard
-[20-May-2025 04:13:55 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 04:13:55 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
-[20-May-2025 04:13:55 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 04:13:55 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 04:13:55 Europe/Berlin] Route calculée : /dashboard
-[20-May-2025 04:13:55 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 04:13:55 Europe/Berlin] URI demandée : /etat-d-avancement/login
-[20-May-2025 04:13:55 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 04:13:55 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 04:13:55 Europe/Berlin] Route calculée : /login
-[20-May-2025 17:55:42 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:55:42 Europe/Berlin] URI demandée : /etat-d-avancement/
-[20-May-2025 17:55:42 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:55:42 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:55:42 Europe/Berlin] Route calculée : /
-[20-May-2025 17:56:11 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:11 Europe/Berlin] URI demandée : /etat-d-avancement/login
-[20-May-2025 17:56:11 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:56:11 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:11 Europe/Berlin] Route calculée : /login
-[20-May-2025 17:56:12 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:12 Europe/Berlin] URI demandée : /etat-d-avancement/login
-[20-May-2025 17:56:12 Europe/Berlin] Méthode HTTP : POST
-[20-May-2025 17:56:12 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:12 Europe/Berlin] Route calculée : /login
-[20-May-2025 17:56:13 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:13 Europe/Berlin] URI demandée : /etat-d-avancement/login
-[20-May-2025 17:56:13 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:56:13 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:13 Europe/Berlin] Route calculée : /login
-[20-May-2025 17:56:17 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:17 Europe/Berlin] URI demandée : /etat-d-avancement/login
-[20-May-2025 17:56:17 Europe/Berlin] Méthode HTTP : POST
-[20-May-2025 17:56:17 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:17 Europe/Berlin] Route calculée : /login
-[20-May-2025 17:56:17 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:17 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
-[20-May-2025 17:56:17 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:56:17 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:17 Europe/Berlin] Route calculée : /dashboard
-[20-May-2025 17:56:23 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:23 Europe/Berlin] URI demandée : /etat-d-avancement/modules
-[20-May-2025 17:56:23 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:56:23 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:23 Europe/Berlin] Route calculée : /modules
-[20-May-2025 17:56:25 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:25 Europe/Berlin] URI demandée : /etat-d-avancement/modules/add
-[20-May-2025 17:56:25 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:56:25 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:25 Europe/Berlin] Route calculée : /modules/add
-[20-May-2025 17:56:40 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:40 Europe/Berlin] URI demandée : /etat-d-avancement/modules/store
-[20-May-2025 17:56:40 Europe/Berlin] Méthode HTTP : POST
-[20-May-2025 17:56:40 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:40 Europe/Berlin] Route calculée : /modules/store
-[20-May-2025 17:56:40 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:40 Europe/Berlin] URI demandée : /etat-d-avancement/modules
-[20-May-2025 17:56:40 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:56:40 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:40 Europe/Berlin] Route calculée : /modules
-[20-May-2025 17:56:42 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:42 Europe/Berlin] URI demandée : /etat-d-avancement/filieres
-[20-May-2025 17:56:42 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:56:42 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:42 Europe/Berlin] Route calculée : /filieres
-[20-May-2025 17:56:45 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:45 Europe/Berlin] URI demandée : /etat-d-avancement/formateurs
-[20-May-2025 17:56:45 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:56:45 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:45 Europe/Berlin] Route calculée : /formateurs
-[20-May-2025 17:56:46 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:46 Europe/Berlin] URI demandée : /etat-d-avancement/formateurs/add
-[20-May-2025 17:56:46 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:56:46 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:46 Europe/Berlin] Route calculée : /formateurs/add
-[20-May-2025 17:56:54 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:54 Europe/Berlin] URI demandée : /etat-d-avancement/objectifs-pedagogiques
-[20-May-2025 17:56:54 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:56:54 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:54 Europe/Berlin] Route calculée : /objectifs-pedagogiques
-[20-May-2025 17:56:58 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:56:58 Europe/Berlin] URI demandée : /etat-d-avancement/objectifs-pedagogiques
-[20-May-2025 17:56:58 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:56:58 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:56:58 Europe/Berlin] Route calculée : /objectifs-pedagogiques
-[20-May-2025 17:57:13 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:57:13 Europe/Berlin] URI demandée : /etat-d-avancement/objectifs-pedagogiques
-[20-May-2025 17:57:13 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:57:13 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:57:13 Europe/Berlin] Route calculée : /objectifs-pedagogiques
-[20-May-2025 17:57:14 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:57:14 Europe/Berlin] URI demandée : /etat-d-avancement/moyens-didactiques
-[20-May-2025 17:57:14 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:57:14 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:57:14 Europe/Berlin] Route calculée : /moyens-didactiques
-[20-May-2025 17:57:17 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:57:17 Europe/Berlin] URI demandée : /etat-d-avancement/objectifs-pedagogiques
-[20-May-2025 17:57:17 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:57:17 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:57:17 Europe/Berlin] Route calculée : /objectifs-pedagogiques
-[20-May-2025 17:57:20 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:57:20 Europe/Berlin] URI demandée : /etat-d-avancement/moyens-didactiques
-[20-May-2025 17:57:20 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:57:20 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:57:20 Europe/Berlin] Route calculée : /moyens-didactiques
-[20-May-2025 17:57:22 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:57:22 Europe/Berlin] URI demandée : /etat-d-avancement/strategies-evaluation
-[20-May-2025 17:57:22 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:57:22 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:57:22 Europe/Berlin] Route calculée : /strategies-evaluation
-[20-May-2025 17:57:26 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:57:26 Europe/Berlin] URI demandée : /etat-d-avancement/etats-avancement
-[20-May-2025 17:57:26 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:57:26 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:57:26 Europe/Berlin] Route calculée : /etats-avancement
-[20-May-2025 17:57:26 Europe/Berlin] Vérification du formateur
-[20-May-2025 17:57:26 Europe/Berlin] Session utilisateur : Array
-(
-    [id] => 3
-    [nom] => Salah
-    [prenom] => System
-    [email] => admin@system.com
-    [roles] => Array
-        (
-            [0] => admin
-        )
-
-)
-
-[20-May-2025 17:57:26 Europe/Berlin] Utilisateur autorisé
-[20-May-2025 17:57:28 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:57:28 Europe/Berlin] URI demandée : /etat-d-avancement/etats-avancement/add
-[20-May-2025 17:57:28 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:57:28 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:57:28 Europe/Berlin] Route calculée : /etats-avancement/add
-[20-May-2025 17:57:28 Europe/Berlin] Vérification du formateur
-[20-May-2025 17:57:28 Europe/Berlin] Session utilisateur : Array
-(
-    [id] => 3
-    [nom] => Salah
-    [prenom] => System
-    [email] => admin@system.com
-    [roles] => Array
-        (
-            [0] => admin
-        )
-
-)
-
-[20-May-2025 17:57:28 Europe/Berlin] Utilisateur autorisé
-[20-May-2025 17:58:25 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:58:25 Europe/Berlin] URI demandée : /etat-d-avancement/etats-avancement/store
-[20-May-2025 17:58:25 Europe/Berlin] Méthode HTTP : POST
-[20-May-2025 17:58:25 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:58:25 Europe/Berlin] Route calculée : /etats-avancement/store
-[20-May-2025 17:58:25 Europe/Berlin] Vérification du formateur
-[20-May-2025 17:58:25 Europe/Berlin] Session utilisateur : Array
-(
-    [id] => 3
-    [nom] => Salah
-    [prenom] => System
-    [email] => admin@system.com
-    [roles] => Array
-        (
-            [0] => admin
-        )
-
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Utilisateur autorisé
-[20-May-2025 17:58:25 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:58:25 Europe/Berlin] URI demandée : /etat-d-avancement/etats-avancement/view/11
-[20-May-2025 17:58:25 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:58:25 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:58:25 Europe/Berlin] Route calculée : /etats-avancement/view/11
-[20-May-2025 17:58:25 Europe/Berlin] Début de la méthode view pour l'ID : 11
-[20-May-2025 17:58:25 Europe/Berlin] Recherche de l'état d'avancement avec l'ID : 11
-[20-May-2025 17:58:25 Europe/Berlin] Requête SQL : SELECT ea.*,
-                       m.intitule as module_intitule,
-                       CONCAT(u.prenom, ' ', u.nom) as formateur_nom
-                FROM etat_avancement ea
-                LEFT JOIN module m ON ea.id_module = m.id
-                LEFT JOIN formateur f ON ea.id_formateur = f.id
-                LEFT JOIN utilisateur u ON f.id_utilisateur = u.id
-                WHERE ea.id = :id
-[20-May-2025 17:58:25 Europe/Berlin] Paramètres : Array
-(
-    [:id] => 11
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Résultat de la requête : Array
-(
-    [id] => 11
-    [date] => 2025-05-20
-    [heure] => 0000-00-00 00:00:00
-    [nbr_heure_cumulee] => 2
-    [nbr_heure] => 1
-    [disposition] => 1
-    [commentaire] => test
-    [contenu_seance] => lalalalala
-    [difficultes] => cc
-    [solutions] => cc
-    [taux_realisation] => 60.00
-    [id_formateur] => 1
-    [id_module] => 3
-    [created_at] => 2025-05-20 16:58:25
-    [updated_at] => 2025-05-20 16:58:25
-    [module_intitule] => algorithme
-    [formateur_nom] => Test Admin
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Heure formatée : 00:00
-[20-May-2025 17:58:25 Europe/Berlin] État d'avancement récupéré : Array
-(
-    [id] => 11
-    [date] => 2025-05-20
-    [heure] => 00:00
-    [nbr_heure_cumulee] => 2
-    [nbr_heure] => 1
-    [disposition] => 1
-    [commentaire] => test
-    [contenu_seance] => lalalalala
-    [difficultes] => cc
-    [solutions] => cc
-    [taux_realisation] => 60.00
-    [id_formateur] => 1
-    [id_module] => 3
-    [created_at] => 2025-05-20 16:58:25
-    [updated_at] => 2025-05-20 16:58:25
-    [module_intitule] => algorithme
-    [formateur_nom] => Test Admin
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Récupération des objectifs pour l'état d'avancement ID : 11
-[20-May-2025 17:58:25 Europe/Berlin] Requête SQL pour les objectifs : SELECT op.id, op.objectif as libelle, eao.statut
-                FROM objectif_pedagogique op
-                LEFT JOIN etat_avancement_objectif eao ON op.id = eao.id_objectif_pedagogique 
-                    AND eao.id_etat_avancement = :etat_id
-                ORDER BY op.objectif
-[20-May-2025 17:58:25 Europe/Berlin] Paramètres : Array
-(
-    [:etat_id] => 11
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Objectifs récupérés : Array
-(
-    [0] => Array
-        (
-            [id] => 1
-            [libelle] => Objectif Pédagogique 1
-            [statut] => 
-        )
-
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Récupération des moyens pour l'état d'avancement ID : 11
-[20-May-2025 17:58:25 Europe/Berlin] Requête SQL pour les moyens : SELECT md.id, md.moyen as libelle, eam.statut
-                FROM moyen_didactique md
-                LEFT JOIN etat_avancement_moyen eam ON md.id = eam.id_moyen_didactique 
-                    AND eam.id_etat_avancement = :etat_id
-                ORDER BY md.moyen
-[20-May-2025 17:58:25 Europe/Berlin] Paramètres : Array
-(
-    [:etat_id] => 11
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Moyens récupérés : Array
-(
-    [0] => Array
-        (
-            [id] => 1
-            [libelle] => Moyens Didactiques1
-            [statut] => utilise
-        )
-
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Récupération des stratégies pour l'état d'avancement ID : 11
-[20-May-2025 17:58:25 Europe/Berlin] Requête SQL pour les stratégies : SELECT se.id, se.strategie as libelle, eas.statut
-                FROM strategie_evaluation se
-                LEFT JOIN etat_avancement_strategie eas ON se.id = eas.id_strategie_evaluation 
-                    AND eas.id_etat_avancement = :etat_id
-                ORDER BY se.strategie
-[20-May-2025 17:58:25 Europe/Berlin] Paramètres : Array
-(
-    [:etat_id] => 11
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Stratégies récupérées : Array
-(
-    [0] => Array
-        (
-            [id] => 1
-            [libelle] => Stratégie d'Évaluation 1
-            [statut] => 
-        )
-
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Objectifs récupérés : Array
-(
-    [0] => Array
-        (
-            [id] => 1
-            [libelle] => Objectif Pédagogique 1
-            [statut] => 
-        )
-
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Moyens récupérés : Array
-(
-    [0] => Array
-        (
-            [id] => 1
-            [libelle] => Moyens Didactiques1
-            [statut] => utilise
-        )
-
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Stratégies récupérées : Array
-(
-    [0] => Array
-        (
-            [id] => 1
-            [libelle] => Stratégie d'Évaluation 1
-            [statut] => 
-        )
-
-)
-
-[20-May-2025 17:58:25 Europe/Berlin] Données formatées pour la vue : Array
-(
-    [etat] => Array
-        (
-            [id] => 11
-            [module] => algorithme
-            [formateur] => Test Admin
-            [date] => 20/05/2025
-            [heure] => 00:00
-            [nbr_heure] => 1
-            [nbr_heure_cumulee] => 2
-            [taux_realisation] => 60.00
-            [disposition] => Oui
-            [commentaire] => test
-            [difficultes] => cc
-            [solutions] => cc
-            [contenu_seance] => lalalalala
-            [id_formateur] => 1
-        )
-
-    [objectifs] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 1
-                    [libelle] => Objectif Pédagogique 1
-                    [statut] => 
-                )
-
-        )
-
-    [moyens] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 1
-                    [libelle] => Moyens Didactiques1
-                    [statut] => Utilisé
-                )
-
-        )
-
-    [strategies] => Array
-        (
-            [0] => Array
-                (
-                    [id] => 1
-                    [libelle] => Stratégie d'Évaluation 1
-                    [statut] => 
-                )
-
-        )
-
-)
-
-[20-May-2025 17:58:34 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:58:34 Europe/Berlin] URI demandée : /etat-d-avancement/profile
-[20-May-2025 17:58:34 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:58:34 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:58:34 Europe/Berlin] Route calculée : /profile
-[20-May-2025 17:58:36 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:58:36 Europe/Berlin] URI demandée : /etat-d-avancement/profile/edit
-[20-May-2025 17:58:36 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:58:36 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:58:36 Europe/Berlin] Route calculée : /profile/edit
-[20-May-2025 17:58:46 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:58:46 Europe/Berlin] URI demandée : /etat-d-avancement/profile/update
-[20-May-2025 17:58:46 Europe/Berlin] Méthode HTTP : POST
-[20-May-2025 17:58:46 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:58:46 Europe/Berlin] Route calculée : /profile/update
-[20-May-2025 17:58:46 Europe/Berlin] ProfileController::update - Début de la mise à jour pour l'utilisateur ID: 3
-[20-May-2025 17:58:46 Europe/Berlin] ProfileController::update - Données de base: {"id":3,"nom":"Salah","prenom":"Ait hammou","email":"admin@system.com"}
-[20-May-2025 17:58:46 Europe/Berlin] ProfileController::validateProfileData - Début de la validation des données: {"id":3,"nom":"Salah","prenom":"Ait hammou","email":"admin@system.com"}
-[20-May-2025 17:58:46 Europe/Berlin] ProfileController::validateProfileData - Fin de la validation. Erreurs trouvées: []
-[20-May-2025 17:58:46 Europe/Berlin] ProfileController::update - Mise à jour réussie pour l'utilisateur ID: 3
-[20-May-2025 17:58:46 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 17:58:46 Europe/Berlin] URI demandée : /etat-d-avancement/profile
-[20-May-2025 17:58:46 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 17:58:46 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 17:58:46 Europe/Berlin] Route calculée : /profile
-[20-May-2025 20:28:59 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 20:28:59 Europe/Berlin] URI demandée : /etat-d-avancement/login
-[20-May-2025 20:28:59 Europe/Berlin] Méthode HTTP : POST
-[20-May-2025 20:28:59 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 20:28:59 Europe/Berlin] Route calculée : /login
-[20-May-2025 20:29:00 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[20-May-2025 20:29:00 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
-[20-May-2025 20:29:00 Europe/Berlin] Méthode HTTP : GET
-[20-May-2025 20:29:00 Europe/Berlin] Chemin de base : /etat-d-avancement
-[20-May-2025 20:29:00 Europe/Berlin] Route calculée : /dashboard
-[21-May-2025 00:49:27 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[21-May-2025 00:49:27 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
-[21-May-2025 00:49:27 Europe/Berlin] Méthode HTTP : GET
-[21-May-2025 00:49:27 Europe/Berlin] Chemin de base : /etat-d-avancement
-[21-May-2025 00:49:27 Europe/Berlin] Route calculée : /dashboard
-[21-May-2025 00:49:27 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
-[21-May-2025 00:49:27 Europe/Berlin] URI demandée : /etat-d-avancement/login
-[21-May-2025 00:49:27 Europe/Berlin] Méthode HTTP : GET
-[21-May-2025 00:49:27 Europe/Berlin] Chemin de base : /etat-d-avancement
-[21-May-2025 00:49:27 Europe/Berlin] Route calculée : /login
+[15-Jun-2025 18:42:01 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:01 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:42:01 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:01 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:01 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:42:01 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:01 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:42:01 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:01 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:01 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:42:01 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:01 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:42:01 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:01 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:01 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:42:37 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:37 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:42:37 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:37 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:37 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:42:37 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:42:37 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:37 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:42:37 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:37 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:37 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:42:37 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:37 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:42:37 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:37 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:37 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:42:37 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:37 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:42:37 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:37 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:37 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:42:38 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:38 Europe/Berlin] URI demandée : /etat-d-avancement/public/objectifs-pedagogiques
+[15-Jun-2025 18:42:38 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:38 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:38 Europe/Berlin] Route calculée : /objectifs-pedagogiques
+[15-Jun-2025 18:42:38 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:42:38 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:38 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:42:38 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:38 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:38 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:42:38 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:38 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:42:38 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:38 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:38 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:42:38 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:38 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:42:38 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:38 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:38 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:42:44 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:44 Europe/Berlin] URI demandée : /etat-d-avancement/public/moyens-didactiques
+[15-Jun-2025 18:42:44 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:44 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:44 Europe/Berlin] Route calculée : /moyens-didactiques
+[15-Jun-2025 18:42:44 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:42:44 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:44 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:42:44 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:44 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:44 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:42:44 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:44 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:42:44 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:44 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:44 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:42:44 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:42:44 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:42:44 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:42:44 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:42:44 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:43:39 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:43:39 Europe/Berlin] URI demandée : /etat-d-avancement/public/moyens-didactiques
+[15-Jun-2025 18:43:39 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:43:39 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:43:39 Europe/Berlin] Route calculée : /moyens-didactiques
+[15-Jun-2025 18:43:39 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:43:39 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:43:39 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:43:39 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:43:39 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:43:39 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:43:39 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:43:39 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:43:39 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:43:39 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:43:39 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:43:39 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:43:39 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:43:39 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:43:39 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:43:39 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:43:42 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:43:42 Europe/Berlin] URI demandée : /etat-d-avancement/public/strategies-evaluation
+[15-Jun-2025 18:43:42 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:43:42 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:43:42 Europe/Berlin] Route calculée : /strategies-evaluation
+[15-Jun-2025 18:43:42 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:43:42 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:43:42 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:43:42 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:43:42 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:43:42 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:43:42 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:43:42 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:43:42 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:43:42 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:43:42 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:43:42 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:43:42 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:43:42 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:43:42 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:43:42 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:44:20 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:44:20 Europe/Berlin] URI demandée : /etat-d-avancement/public/strategies-evaluation
+[15-Jun-2025 18:44:20 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:44:20 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:44:20 Europe/Berlin] Route calculée : /strategies-evaluation
+[15-Jun-2025 18:44:20 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:44:20 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:44:20 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:44:20 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:44:20 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:44:20 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:44:20 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:44:20 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:44:20 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:44:20 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:44:20 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:44:20 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:44:20 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:44:20 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:44:20 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:44:20 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[15-Jun-2025 18:44:28 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:44:28 Europe/Berlin] URI demandée : /etat-d-avancement/public/utilisateurs
+[15-Jun-2025 18:44:28 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:44:28 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:44:28 Europe/Berlin] Route calculée : /utilisateurs
+[15-Jun-2025 18:44:28 Europe/Berlin] Connexion à la base de données réussie
+[15-Jun-2025 18:44:28 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:44:28 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/css/style.css
+[15-Jun-2025 18:44:28 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:44:28 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:44:28 Europe/Berlin] Route calculée : /public/css/style.css
+[15-Jun-2025 18:44:28 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:44:28 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/app.js
+[15-Jun-2025 18:44:28 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:44:28 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:44:28 Europe/Berlin] Route calculée : /public/js/app.js
+[15-Jun-2025 18:44:28 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[15-Jun-2025 18:44:28 Europe/Berlin] URI demandée : /etat-d-avancement/public/public/js/etat-avancement.js
+[15-Jun-2025 18:44:28 Europe/Berlin] Méthode HTTP : GET
+[15-Jun-2025 18:44:28 Europe/Berlin] Chemin de base : /etat-d-avancement/public
+[15-Jun-2025 18:44:28 Europe/Berlin] Route calculée : /public/js/etat-avancement.js

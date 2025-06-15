@@ -117,4 +117,18 @@ class FormateurModel
         $this->db->query("DELETE FROM utilisateur_roles WHERE id_utilisateur = :user_id AND id_roles = 6", [':user_id' => $userId]);
         return true;
     }
+
+    /**
+     * Vérifie si un formateur est utilisé dans des états d'avancement
+     * 
+     * @param int $formateurId ID du formateur à vérifier
+     * @return bool True si le formateur est utilisé, false sinon
+     */
+    public function isUsedInEtatsAvancement(int $formateurId): bool
+    {
+        $sql = "SELECT COUNT(*) as count FROM etat_avancement WHERE id_formateur = :formateur_id";
+        $stmt = $this->db->query($sql, [':formateur_id' => $formateurId]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['count'] > 0;
+    }
 }

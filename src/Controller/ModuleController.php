@@ -49,6 +49,12 @@ class ModuleController extends BaseController
         $total = $this->moduleModel->countAllWithFiliere($search);
         $offset = ($page - 1) * $limit;
         $modules = $this->moduleModel->findPagedWithFiliere($limit, $offset, $search);
+        
+        // Ajouter l'information is_used pour chaque module
+        foreach ($modules as &$module) {
+            $module['is_used'] = $this->moduleModel->isUsedInEtatAvancement((int)$module['id']);
+        }
+        
         $totalPages = (int)ceil($total / $limit);
 
         // Rendre la vue avec données de pagination
@@ -278,6 +284,13 @@ class ModuleController extends BaseController
             $this->redirect('/modules');
             return;
         }
+
+        // Vérifier si le module est utilisé dans un état d'avancement
+        if ($this->moduleModel->isUsedInEtatAvancement($id)) {
+            $this->setFlashMessage('error', 'Impossible de supprimer ce module car il est utilisé dans un ou plusieurs états d\'avancement.');
+            $this->redirect('/modules');
+            return;
+        }
         
         // Supprimer le module
         $success = $this->moduleModel->delete($id);
@@ -312,6 +325,28 @@ class ModuleController extends BaseController
             ->positive('id_filiere', $data['id_filiere'])
             ->exists('id_filiere', $data['id_filiere'], fn(int $id): bool => (bool)$this->filiereModel->findById($id));
         return $validator->getErrors();
+    }
+
+    /**
+     * Affiche la liste des modules
+     */
+    public function index(): void
+    {
+        $this->requireAdminOrFormateur();
+        
+        // Récupérer les modules avec leurs filières
+        $modules = $this->moduleModel->findAllWithFiliere();
+        
+        // Ajouter l'information is_used pour chaque module
+        foreach ($modules as &$module) {
+            $module['is_used'] = $this->moduleModel->isUsedInEtatAvancement((int)$module['id']);
+        }
+        
+        $this->render('module/list', [
+            'title' => 'Liste des Modules',
+            'modules' => $modules,
+            'search' => $_GET['search'] ?? ''
+        ]);
     }
 
 }

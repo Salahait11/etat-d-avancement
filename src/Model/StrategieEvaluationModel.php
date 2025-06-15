@@ -6,6 +6,7 @@ namespace App\Model;
 
 use App\Core\Database;
 use PDO;
+use PDOException;
 
 class StrategieEvaluationModel
 {
@@ -93,6 +94,27 @@ class StrategieEvaluationModel
     }
 
     /**
+     * Vérifie si une stratégie d'évaluation est utilisée dans des états d'avancement
+     * @param int $strategieId ID de la stratégie d'évaluation
+     * @return bool True si la stratégie est utilisée, false sinon
+     */
+    public function isUsedInEtatsAvancement(int $strategieId): bool
+    {
+        try {
+            $sql = "SELECT COUNT(*) as count FROM etat_avancement_strategie WHERE id_strategie_evaluation = :strategie_id";
+            $stmt = $this->db->query($sql, [':strategie_id' => $strategieId]);
+            if ($stmt) {
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                return $result['count'] > 0;
+            }
+            return false;
+        } catch (PDOException $e) {
+            error_log("Erreur lors de la vérification de l'utilisation de la stratégie d'évaluation : " . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
      * Supprime une stratégie d'évaluation.
      *
      * @param int $id ID de la stratégie d'évaluation à supprimer
@@ -100,17 +122,19 @@ class StrategieEvaluationModel
      */
     public function delete(int $id): bool
     {
-        // Vérifier si la stratégie d'évaluation est utilisée dans etat_avancement_strategie
-        $checkSql = "SELECT COUNT(*) FROM etat_avancement_strategie WHERE id_strategie_evaluation = :id";
-        $checkStmt = $this->db->query($checkSql, [':id' => $id]);
-        
-        if ($checkStmt && $checkStmt->fetchColumn() > 0) {
-            // La stratégie est utilisée, ne pas supprimer
+        try {
+            // Vérifier d'abord si la stratégie est utilisée
+            if ($this->isUsedInEtatsAvancement($id)) {
+                error_log("Tentative de suppression d'une stratégie d'évaluation utilisée dans des états d'avancement : " . $id);
+                return false;
+            }
+
+            $sql = "DELETE FROM strategie_evaluation WHERE id = :id";
+            $stmt = $this->db->query($sql, [':id' => $id]);
+            return $stmt !== false;
+        } catch (PDOException $e) {
+            error_log("Erreur lors de la suppression de la stratégie d'évaluation : " . $e->getMessage());
             return false;
         }
-        
-        // La stratégie n'est pas utilisée, on peut la supprimer
-        $sql = "DELETE FROM strategie_evaluation WHERE id = :id";
-        return $this->db->query($sql, [':id' => $id]) ? true : false;
     }
 }
