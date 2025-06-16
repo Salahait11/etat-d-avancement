@@ -167,14 +167,14 @@ try {
         $r->addRoute('POST', '/objectifs-pedagogiques/store', function() {
             (new \App\Controller\ObjectifPedagogiqueController())->store();
         });
-        $r->addRoute('GET', '/objectifs-pedagogiques/edit/{id:\\d+}', function($args) {
-            (new \App\Controller\ObjectifPedagogiqueController())->edit($args['id']);
+        $r->addRoute('GET', '/objectifs-pedagogiques/edit/{id:\d+}', function($args) {
+            (new \App\Controller\ObjectifPedagogiqueController())->edit((int)$args['id']);
         });
-        $r->addRoute('POST', '/objectifs-pedagogiques/update/{id:\\d+}', function($args) {
-            (new \App\Controller\ObjectifPedagogiqueController())->update($args['id']);
+        $r->addRoute('POST', '/objectifs-pedagogiques/update/{id:\d+}', function($args) {
+            (new \App\Controller\ObjectifPedagogiqueController())->update((int)$args['id']);
         });
-        $r->addRoute('POST', '/objectifs-pedagogiques/delete/{id:\\d+}', function($args) {
-            (new \App\Controller\ObjectifPedagogiqueController())->delete($args['id']);
+        $r->addRoute(['POST','GET'], '/objectifs-pedagogiques/delete/{id:\d+}', function($args) {
+            (new \App\Controller\ObjectifPedagogiqueController())->delete((int)$args['id']);
         });
 
         // Modules (CRUD)
@@ -275,14 +275,14 @@ try {
         $r->addRoute('POST', '/moyens-didactiques/store', function() {
             (new \App\Controller\MoyenDidactiqueController())->store();
         });
-        $r->addRoute('GET', '/moyens-didactiques/edit/{id:\\d+}', function($args) {
-            (new \App\Controller\MoyenDidactiqueController())->edit($args['id']);
+        $r->addRoute('GET', '/moyens-didactiques/edit/{id:\d+}', function($args) {
+            (new \App\Controller\MoyenDidactiqueController())->edit((int)$args['id']);
         });
-        $r->addRoute('POST', '/moyens-didactiques/update/{id:\\d+}', function($args) {
-            (new \App\Controller\MoyenDidactiqueController())->update($args['id']);
+        $r->addRoute('POST', '/moyens-didactiques/update/{id:\d+}', function($args) {
+            (new \App\Controller\MoyenDidactiqueController())->update((int)$args['id']);
         });
-        $r->addRoute('POST', '/moyens-didactiques/delete/{id:\\d+}', function($args) {
-            (new \App\Controller\MoyenDidactiqueController())->delete($args['id']);
+        $r->addRoute(['POST','GET'], '/moyens-didactiques/delete/{id:\d+}', function($args) {
+            (new \App\Controller\MoyenDidactiqueController())->delete((int)$args['id']);
         });
 
         // Stratégies d'évaluation (CRUD)
@@ -295,14 +295,14 @@ try {
         $r->addRoute('POST', '/strategies-evaluation/store', function() {
             (new \App\Controller\StrategieEvaluationController())->store();
         });
-        $r->addRoute('GET', '/strategies-evaluation/edit/{id:\\d+}', function($args) {
-            (new \App\Controller\StrategieEvaluationController())->edit($args['id']);
+        $r->addRoute('GET', '/strategies-evaluation/edit/{id:\d+}', function($args) {
+            (new \App\Controller\StrategieEvaluationController())->edit((int)$args['id']);
         });
-        $r->addRoute('POST', '/strategies-evaluation/update/{id:\\d+}', function($args) {
-            (new \App\Controller\StrategieEvaluationController())->update($args['id']);
+        $r->addRoute('POST', '/strategies-evaluation/update/{id:\d+}', function($args) {
+            (new \App\Controller\StrategieEvaluationController())->update((int)$args['id']);
         });
-        $r->addRoute('POST', '/strategies-evaluation/delete/{id:\\d+}', function($args) {
-            (new \App\Controller\StrategieEvaluationController())->delete($args['id']);
+        $r->addRoute(['POST','GET'], '/strategies-evaluation/delete/{id:\d+}', function($args) {
+            (new \App\Controller\StrategieEvaluationController())->delete((int)$args['id']);
         });
 
         // Routes du profil
