@@ -506,3 +506,33 @@ Stack trace:
 [15-Jun-2025 18:44:28 Europe/Berlin] Méthode HTTP : GET
 [15-Jun-2025 18:44:28 Europe/Berlin] Chemin de base : /etat-d-avancement/public
 [15-Jun-2025 18:44:28 Europe/Berlin] Route calculée : /public/js/etat-avancement.js
+[16-Jun-2025 22:15:03 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[16-Jun-2025 22:15:03 Europe/Berlin] URI demandée : /etat-d-avancement/
+[16-Jun-2025 22:15:03 Europe/Berlin] Méthode HTTP : GET
+[16-Jun-2025 22:15:03 Europe/Berlin] Chemin de base : /etat-d-avancement
+[16-Jun-2025 22:15:03 Europe/Berlin] Route calculée : /
+[16-Jun-2025 22:15:04 Europe/Berlin] Connexion à la base de données réussie
+[16-Jun-2025 22:15:09 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[16-Jun-2025 22:15:09 Europe/Berlin] URI demandée : /etat-d-avancement/login
+[16-Jun-2025 22:15:09 Europe/Berlin] Méthode HTTP : GET
+[16-Jun-2025 22:15:09 Europe/Berlin] Chemin de base : /etat-d-avancement
+[16-Jun-2025 22:15:09 Europe/Berlin] Route calculée : /login
+[16-Jun-2025 22:15:09 Europe/Berlin] Connexion à la base de données réussie
+[16-Jun-2025 22:15:45 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[16-Jun-2025 22:15:45 Europe/Berlin] URI demandée : /etat-d-avancement/login
+[16-Jun-2025 22:15:45 Europe/Berlin] Méthode HTTP : POST
+[16-Jun-2025 22:15:45 Europe/Berlin] Chemin de base : /etat-d-avancement
+[16-Jun-2025 22:15:45 Europe/Berlin] Route calculée : /login
+[16-Jun-2025 22:15:45 Europe/Berlin] Connexion à la base de données réussie
+[16-Jun-2025 22:15:45 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[16-Jun-2025 22:15:45 Europe/Berlin] URI demandée : /etat-d-avancement/dashboard
+[16-Jun-2025 22:15:45 Europe/Berlin] Méthode HTTP : GET
+[16-Jun-2025 22:15:45 Europe/Berlin] Chemin de base : /etat-d-avancement
+[16-Jun-2025 22:15:45 Europe/Berlin] Route calculée : /dashboard
+[16-Jun-2025 22:15:45 Europe/Berlin] Connexion à la base de données réussie
+[16-Jun-2025 22:15:47 Europe/Berlin] === DÉBUT DE LA REQUÊTE ===
+[16-Jun-2025 22:15:47 Europe/Berlin] URI demandée : /etat-d-avancement/filieres
+[16-Jun-2025 22:15:47 Europe/Berlin] Méthode HTTP : GET
+[16-Jun-2025 22:15:47 Europe/Berlin] Chemin de base : /etat-d-avancement
+[16-Jun-2025 22:15:47 Europe/Berlin] Route calculée : /filieres
+[16-Jun-2025 22:15:47 Europe/Berlin] Connexion à la base de données réussie

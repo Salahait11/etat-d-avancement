@@ -1,12 +1,9 @@
+Options -Indexes
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /etat-d-avancement/
 
-    # Si le fichier ou le répertoire existe, servir directement
-    RewriteCond %{REQUEST_FILENAME} -f [OR]
-    RewriteCond %{REQUEST_FILENAME} -d
-    RewriteRule ^ - [L]
-
-    # Rediriger tout vers public/index.php
-    RewriteRule ^(.*)$ public/index.php [L]
+    # Forcer la redirection vers public/index.php
+    RewriteCond %{REQUEST_URI} !^/etat-d-avancement/public/
+    RewriteRule ^(.*)$ public/index.php [QSA,L]
 </IfModule>

@@ -9,7 +9,7 @@ declare(strict_types=1);
 // $baseUrl = 'http://localhost/gestion_ecoles_v2/public';
 
 // Option 2: Si tu as configuré un Virtual Host (ex: http://gecoles.test/) qui pointe vers le dossier /public
-$baseUrl = 'http://localhost/etat-d-avancement/public'; // URL complète incluant /public
+$baseUrl = 'http://localhost/etat-d-avancement'; // URL sans /public car géré par .htaccess
 
 // Option 3: Essai de détection automatique (peut être moins fiable selon les serveurs)
 /*
@@ -33,6 +33,6 @@ $config = [
 
 // Définir les constantes globales
 define('APP_ENV', $config['env']);
-define('BASE_URL', $config['base_url']); // Ex: http://localhost/gestion_ecoles_v2/public
+define('BASE_URL', $config['base_url']); // Ex: http://localhost/etat-d-avancement
 
 return $config; // Retourne aussi le tableau pour une utilisation éventuelle
