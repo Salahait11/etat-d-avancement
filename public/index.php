@@ -197,27 +197,23 @@ try {
             (new \App\Controller\ModuleController())->delete((int)$args['id']);
         });
 
-        // Ajoutez ici les autres routes pour filières, contenus, moyens, stratégies, etc.
-        // Exemple pour filières :
+        // Filieres (CRUD)
         $r->addRoute('GET', '/filieres', function() {
             (new \App\Controller\FiliereController())->index();
         });
-        $r->addRoute('GET', '/filieres/add', function() {
+        $r->addRoute('GET', '/filieres/create', function() {
             (new \App\Controller\FiliereController())->create();
         });
         $r->addRoute('POST', '/filieres/store', function() {
             (new \App\Controller\FiliereController())->store();
         });
-        $r->addRoute('GET', '/filieres/edit/{id:\\d+}', function($args) {
+        $r->addRoute('GET', '/filieres/edit/{id:\d+}', function($args) {
             (new \App\Controller\FiliereController())->edit((int)$args['id']);
         });
-        $r->addRoute('GET', '/filieres/show/{id:\\d+}', function($args) {
-            (new \App\Controller\FiliereController())->show((int)$args['id']);
-        });
-        $r->addRoute('POST', '/filieres/update/{id:\\d+}', function($args) {
+        $r->addRoute('POST', '/filieres/update/{id:\d+}', function($args) {
             (new \App\Controller\FiliereController())->update((int)$args['id']);
         });
-        $r->addRoute(['POST','GET'], '/filieres/delete/{id:\\d+}', function($args) {
+        $r->addRoute(['POST','GET'], '/filieres/delete/{id:\d+}', function($args) {
             (new \App\Controller\FiliereController())->delete((int)$args['id']);
         });
 
